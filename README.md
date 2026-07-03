@@ -1,2 +1,95 @@
-# tariqahmed78.github.io
-my website 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router Manager | Professional Network Controls</title>
+    <!-- AdMob Verification Tag -->
+    <meta name="google-site-verification" content="googlec51ed36e5549e530.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00D4FF;
+            --dark: #0F172A;
+            --gray: #64748B;
+            --light: #F8FAFC;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        .badge {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem;
+            letter-spacing: -0.025em;
+        }
+        p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .links {
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+        .links a {
+            color: var(--gray);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.875rem;
+        }
+        .links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">NOW ON GOOGLE PLAY</div>
+        <h1>Router Manager</h1>
+        <p>Monitor connected devices, control Wi-Fi settings, and manage your network with a professional dashboard designed for your Huawei router.</p>
+        <a href="https://play.google.com/store" class="btn">Get it on Google Play</a>
+
+        <div class="links">
+            <a href="/app-ads.txt">app-ads.txt</a>
+            <a href="https://gist.github.com/tariqahmed78/...">Privacy Policy</a>
+        </div>
+    </div>
+</body>
+</html>
