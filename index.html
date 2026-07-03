@@ -6,86 +6,223 @@
     <title>Router Manager | Professional Network Controls</title>
     <!-- AdMob Verification Tag -->
     <meta name="google-site-verification" content="googlec51ed36e5549e530.html">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00D4FF;
-            --dark: #0F172A;
-            --gray: #64748B;
-            --light: #F8FAFC;
+            --primary-dim: #00a8cc;
+            --dark: #060B14;
+            --panel: #0F1A2B;
+            --gray: #7C8CA6;
+            --light: #F1F6FC;
+            --line: rgba(0, 212, 255, 0.14);
         }
+
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             margin: 0;
-            background-color: var(--dark);
+            background: var(--dark);
             color: var(--light);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             text-align: center;
+            overflow-x: hidden;
+            position: relative;
         }
+
+        /* ---- Ambient network grid ---- */
+        .grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+            animation: driftGrid 40s linear infinite;
+        }
+        @keyframes driftGrid {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 56px 112px, 56px 112px; }
+        }
+
+        /* ---- Signal pulses (the signature element) ---- */
+        .signal {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 12px 2px var(--primary);
+        }
+        .ring {
+            position: absolute;
+            top: -78px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: pulse 3.6s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+        }
+        .ring:nth-child(2) { animation-delay: 1.2s; }
+        .ring:nth-child(3) { animation-delay: 2.4s; }
+        @keyframes pulse {
+            0%   { width: 6px; height: 6px; opacity: 0.9; }
+            80%  { width: 480px; height: 480px; opacity: 0; }
+            100% { width: 480px; height: 480px; opacity: 0; }
+        }
+
         .container {
-            max-width: 600px;
+            max-width: 620px;
             padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
+
         .badge {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.35);
             color: var(--primary);
-            padding: 0.5rem 1rem;
+            padding: 0.45rem 1.1rem;
             border-radius: 99px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
+            animation: fadeUp 0.8s ease both;
         }
+        .badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 8px 2px var(--primary);
+            animation: blink 1.8s ease-in-out infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+
         h1 {
-            font-size: 3rem;
-            margin: 0 0 1rem;
-            letter-spacing: -0.025em;
+            font-size: clamp(2.5rem, 6vw, 3.4rem);
+            margin: 0 0 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            background: linear-gradient(180deg, #FFFFFF 0%, #B9D6E8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeUp 0.8s ease 0.1s both;
         }
+
         p {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            line-height: 1.6;
-            margin-bottom: 2rem;
+            line-height: 1.65;
+            margin: 0 0 2.25rem;
+            animation: fadeUp 0.8s ease 0.2s both;
         }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
         .btn {
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 1rem 2rem;
+            background: var(--primary);
+            color: #041018;
+            padding: 1rem 2.1rem;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            transition: transform 0.2s;
-            display: inline-block;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            position: relative;
+            isolation: isolate;
+            animation: fadeUp 0.8s ease 0.3s both;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.5);
+        }
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary), transparent 60%);
+            z-index: -1;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
         }
         .btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px -6px rgba(0, 212, 255, 0.55);
         }
+        .btn:hover::before {
+            opacity: 0.9;
+        }
+        .btn svg { width: 18px; height: 18px; }
+
         .links {
             margin-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 1.25rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            animation: fadeUp 0.8s ease 0.4s both;
         }
         .links a {
             color: var(--gray);
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
         }
         .links a:hover {
             color: var(--primary);
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .grid, .ring, .badge .dot, .badge, h1, p, .btn, .links {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="grid"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="signal"></div>
+
     <div class="container">
-        <div class="badge">NOW ON GOOGLE PLAY</div>
+        <div class="badge"><span class="dot"></span>NOW ON GOOGLE PLAY</div>
         <h1>Router Manager</h1>
         <p>Monitor connected devices, control Wi-Fi settings, and manage your network with a professional dashboard designed for your Huawei router.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.tariqinvents.routerapp" class="btn">Get it on Google Play</a>
-
+        <a href="https://play.google.com/store/apps/details?id=com.tariqinvents.routerapp" class="btn">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 20.5V3.5C3 3.09 3.21 2.72 3.53 2.5L13.5 12L3.53 21.5C3.21 21.28 3 20.91 3 20.5Z" fill="#041018"/><path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z" fill="#041018"/><path d="M20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.91 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z" fill="#041018"/><path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z" fill="#041018"/></svg>
+            Get it on Google Play
+        </a>
         <div class="links">
             <a href="/app-ads.txt">app-ads.txt</a>
             <a href="https://gist.github.com/tariqahmed78/4287174b2f9b2dd4fa58075e750aebe0">Privacy Policy</a>
