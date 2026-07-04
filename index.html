@@ -1,232 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiber Router Manager | Professional Network Controls</title>
-    <!-- AdMob Verification Tag -->
-    <meta name="google-site-verification" content="googlec51ed36e5549e530.html">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00D4FF;
-            --primary-dim: #00a8cc;
-            --dark: #060B14;
-            --panel: #0F1A2B;
-            --gray: #7C8CA6;
-            --light: #F1F6FC;
-            --line: rgba(0, 212, 255, 0.14);
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            margin: 0;
-            background: var(--dark);
-            color: var(--light);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* ---- Ambient network grid ---- */
-        .grid {
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(var(--line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--line) 1px, transparent 1px);
-            background-size: 56px 56px;
-            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
-            animation: driftGrid 40s linear infinite;
-        }
-        @keyframes driftGrid {
-            0% { background-position: 0 0, 0 0; }
-            100% { background-position: 56px 112px, 56px 112px; }
-        }
-
-        /* ---- Signal pulses (the signature element) ---- */
-        .signal {
-            position: absolute;
-            top: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--primary);
-            box-shadow: 0 0 12px 2px var(--primary);
-        }
-        .ring {
-            position: absolute;
-            top: -78px;
-            left: 50%;
-            width: 6px;
-            height: 6px;
-            border: 1px solid var(--primary);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            animation: pulse 3.6s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
-        }
-        .ring:nth-child(2) { animation-delay: 1.2s; }
-        .ring:nth-child(3) { animation-delay: 2.4s; }
-        @keyframes pulse {
-            0%   { width: 6px; height: 6px; opacity: 0.9; }
-            80%  { width: 480px; height: 480px; opacity: 0; }
-            100% { width: 480px; height: 480px; opacity: 0; }
-        }
-
-        .container {
-            max-width: 620px;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .badge {
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.35);
-            color: var(--primary);
-            padding: 0.45rem 1.1rem;
-            border-radius: 99px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1.75rem;
-            animation: fadeUp 0.8s ease both;
-        }
-        .badge .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary);
-            box-shadow: 0 0 8px 2px var(--primary);
-            animation: blink 1.8s ease-in-out infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.35; }
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 3.4rem);
-            margin: 0 0 1.1rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            background: linear-gradient(180deg, #FFFFFF 0%, #B9D6E8 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: fadeUp 0.8s ease 0.1s both;
-        }
-
-        p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            line-height: 1.65;
-            margin: 0 0 2.25rem;
-            animation: fadeUp 0.8s ease 0.2s both;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(14px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .btn {
-            background: var(--primary);
-            color: #041018;
-            padding: 1rem 2.1rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            position: relative;
-            isolation: isolate;
-            animation: fadeUp 0.8s ease 0.3s both;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.5);
-        }
-        .btn::before {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--primary), transparent 60%);
-            z-index: -1;
-            opacity: 0;
-            filter: blur(10px);
-            transition: opacity 0.3s ease;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px -6px rgba(0, 212, 255, 0.55);
-        }
-        .btn:hover::before {
-            opacity: 0.9;
-        }
-        .btn svg { width: 18px; height: 18px; }
-
-        .links {
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 1.25rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            animation: fadeUp 0.8s ease 0.4s both;
-        }
-        .links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-            letter-spacing: 0.02em;
-            transition: color 0.2s ease;
-        }
-        .links a:hover {
-            color: var(--primary);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .grid, .ring, .badge .dot, .badge, h1, p, .btn, .links {
-                animation: none !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiber Router Manager | Professional Network Controls</title>
+<meta name="description" content="Scan connected devices, edit Wi-Fi settings, and run speed tests on your Huawei fiber router — straight from your phone.">
+<!-- AdMob Verification Tag -->
+<meta name="google-site-verification" content="googlec51ed36e5549e530.html">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div class="grid"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="signal"></div>
 
-    <div class="container">
-        <div class="badge"><span class="dot"></span>NOW ON GOOGLE PLAY</div>
-        <h1>Router Manager</h1>
-        <p>Monitor connected devices, control Wi-Fi settings, and manage your network with a professional dashboard designed for your Huawei router.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.tariqinvents.routerapp" class="btn">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 20.5V3.5C3 3.09 3.21 2.72 3.53 2.5L13.5 12L3.53 21.5C3.21 21.28 3 20.91 3 20.5Z" fill="#041018"/><path d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z" fill="#041018"/><path d="M20.16 10.81C20.5 11.08 20.75 11.5 20.75 12C20.75 12.5 20.53 12.91 20.16 13.19L17.89 14.5L15.39 12L17.89 9.5L20.16 10.81Z" fill="#041018"/><path d="M6.05 2.66L16.81 8.88L14.54 11.15L6.05 2.66Z" fill="#041018"/></svg>
-            Get it on Google Play
-        </a>
-        <div class="links">
-            <a href="/app-ads.txt">app-ads.txt</a>
-            <a href="https://gist.github.com/tariqahmed78/4287174b2f9b2dd4fa58075e750aebe0">Privacy Policy</a>
-        </div>
+<nav class="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><img src="assets/logo.png" alt="Fiber Router Manager logo"></span>
+    <span class="brand-name">Fiber Router Manager<span>NETWORK CONTROL</span></span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="privacy-policy.html">Privacy</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="network-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <span class="badge"><span class="dot"></span>NOW ON GOOGLE PLAY</span>
+    <h1>Every device on your network,<br><em>mapped and controlled.</em></h1>
+    <p>Fiber Router Manager talks to your Huawei router directly over your local network. Scan connected devices, edit Wi-Fi settings, and run speed tests from one dashboard.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.tariqinvents.routerapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5c-.4.3-.7.8-.7 1.4v14.2c0 .6.3 1.1.7 1.4l.1.1L13 12.2v-.4L4.6 3.4z"/><path d="M16 8.7l-2.8-1.6L9.9 3.7 16 8.7z"/><path d="M16 15.3l-6.1 3.5L13.2 15z"/><path d="M17.8 11.1L16 12.2v-.4l1.8 1.1z"/></svg>
+        Get it on Google Play
+      </a>
+      <a class="link-ghost" href="privacy-policy.html">Read the privacy policy</a>
     </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow mono">ON YOUR DEVICE, NOT SOMEONE ELSE'S</span>
+    <h2>Four tools, one honest label each.</h2>
+    <p>Every reading below tells you where the data actually goes — processed on your network, or synced so your settings survive a reinstall.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-top">
+        <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
+        <span class="data-tag local">LOCAL</span>
+      </div>
+      <h3>Device scan</h3>
+      <p>Every MAC address, IP, and hostname connected to your router, listed in real time.</p>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
+        <span class="data-tag local">LOCAL</span>
+      </div>
+      <h3>Wi-Fi control</h3>
+      <p>View and edit your SSID, password, and security settings straight from your phone.</p>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
+        <span class="data-tag">NETWORK</span>
+      </div>
+      <h3>Speed test</h3>
+      <p>Measure upload and download throughput against nearby test servers, no account needed.</p>
+    </div>
+    <div class="card">
+      <div class="card-top">
+        <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
+        <span class="data-tag">CLOUD SYNC</span>
+      </div>
+      <h3>Live alerts</h3>
+      <p>Get notified the moment a new device joins your network, even with the app closed.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
+    <span class="footer-copy">© 2026 TR Tech Invents. All rights reserved.</span>
+  </div>
+  <div class="footer-links">
+    <a href="app-ads.txt">app-ads.txt</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="mailto:tariqahmed7@proton.mail">Contact</a>
+  </div>
+</footer>
+
+<script src="assets/theme.js"></script>
+<script src="assets/network.js"></script>
 </body>
 </html>
