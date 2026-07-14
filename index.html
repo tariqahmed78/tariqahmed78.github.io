@@ -19,11 +19,17 @@
     <span class="brand-name">Fiber Router Manager<span>NETWORK CONTROL</span></span>
   </a>
   <div class="nav-right">
-    <a class="nav-link" href="privacy-policy.html">Privacy</a>
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="blog.html">Blog</a>
+      <a class="nav-link" href="products.html">Products</a>
+      <a class="nav-link" href="website-privacy-policy.html">Privacy</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
     </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
   </div>
 </nav>
 
@@ -38,7 +44,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5c-.4.3-.7.8-.7 1.4v14.2c0 .6.3 1.1.7 1.4l.1.1L13 12.2v-.4L4.6 3.4z"/><path d="M16 8.7l-2.8-1.6L9.9 3.7 16 8.7z"/><path d="M16 15.3l-6.1 3.5L13.2 15z"/><path d="M17.8 11.1L16 12.2v-.4l1.8 1.1z"/></svg>
         Get it on Google Play
       </a>
-      <a class="link-ghost" href="privacy-policy.html">Read the privacy policy</a>
+      <a class="link-ghost" href="privacy-policy.html">Read the app's privacy policy</a>
     </div>
   </div>
 </header>
@@ -50,7 +56,7 @@
     <p>Every reading below tells you where the data actually goes — processed on your network, or synced so your settings survive a reinstall.</p>
   </div>
   <div class="grid">
-    <div class="card">
+    <div class="card reveal">
       <div class="card-top">
         <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
         <span class="data-tag local">LOCAL</span>
@@ -58,7 +64,7 @@
       <h3>Device scan</h3>
       <p>Every MAC address, IP, and hostname connected to your router, listed in real time.</p>
     </div>
-    <div class="card">
+    <div class="card reveal">
       <div class="card-top">
         <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
         <span class="data-tag local">LOCAL</span>
@@ -66,7 +72,7 @@
       <h3>Wi-Fi control</h3>
       <p>View and edit your SSID, password, and security settings straight from your phone.</p>
     </div>
-    <div class="card">
+    <div class="card reveal">
       <div class="card-top">
         <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
         <span class="data-tag">NETWORK</span>
@@ -74,7 +80,7 @@
       <h3>Speed test</h3>
       <p>Measure upload and download throughput against nearby test servers, no account needed.</p>
     </div>
-    <div class="card">
+    <div class="card reveal">
       <div class="card-top">
         <span class="signal-icon"><span></span><span></span><span></span><span></span></span>
         <span class="data-tag">CLOUD SYNC</span>
@@ -85,19 +91,58 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="section-head">
+    <span class="eyebrow mono">FROM THE BLOG</span>
+    <h2>Understand your network, not just your app.</h2>
+    <p>Short, practical guides on the things Fiber Router Manager helps you see — signal, devices, and speed.</p>
+  </div>
+  <div class="post-grid">
+    <a href="post-1.html" class="post-card reveal">
+      <span class="data-tag local">SIGNAL</span>
+      <h3>Why Your Router Keeps Dropping Signal (And How to Actually Fix It)</h3>
+      <p>Restarting your router only fixes the symptom. Here's what's actually going on.</p>
+      <div class="post-meta"><span>6 min read</span><span>Jul 2026</span></div>
+    </a>
+    <a href="post-2.html" class="post-card reveal">
+      <span class="data-tag local">DEVICES</span>
+      <h3>How to Read Your Connected Devices List Like a Network Admin</h3>
+      <p>Every MAC address and hostname on your network tells you something, if you know what to look for.</p>
+      <div class="post-meta"><span>5 min read</span><span>Jul 2026</span></div>
+    </a>
+    <a href="post-3.html" class="post-card reveal">
+      <span class="data-tag">SPEED</span>
+      <h3>Speed Test Results Explained: Upload, Download, and Ping</h3>
+      <p>Three numbers, one confusing report. Here's what each one actually tells you about your connection.</p>
+      <div class="post-meta"><span>5 min read</span><span>Jul 2026</span></div>
+    </a>
+  </div>
+  <div style="text-align:center; margin-top: 2rem;">
+    <a href="blog.html" class="link-ghost">Read all posts →</a>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer-brand">
     <span class="brand-mark"><img src="logo.png" alt=""></span>
     <span class="footer-copy">© 2026 TR Tech Invents. All rights reserved.</span>
   </div>
   <div class="footer-links">
+    <a href="blog.html">Blog</a>
+    <a href="products.html">Products</a>
     <a href="app-ads.txt">app-ads.txt</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="mailto:tariqahmed7@proton.mail">Contact</a>
+    <a href="website-privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 
 <script src="theme.js"></script>
 <script src="network.js"></script>
+<script src="reveal.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Read Your Connected Devices List | Fiber Router Manager</title>
+<meta name="description" content="Every MAC address and hostname on your network tells you something, if you know what to look for.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><img src="logo.png" alt="Fiber Router Manager logo"></span>
+    <span class="brand-name">Fiber Router Manager<span>NETWORK CONTROL</span></span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+      <a class="nav-link" href="products.html">Products</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+    </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<header class="page-head" style="text-align:left; max-width:680px; margin:0 auto;">
+  <span class="data-tag local">DEVICES</span>
+  <h1 style="margin-top:0.8rem;">How to Read Your Connected Devices List Like a Network Admin</h1>
+  <div class="post-meta" style="margin-top:1.2rem; justify-content:flex-start; gap:1.2rem;"><span>5 min read</span><span>Published Jul 2026</span></div>
+</header>
+
+<article class="article-body reveal">
+  <p>Open a router's device list for the first time and it looks like noise: a column of MAC addresses, some vague hostnames, a few blank entries. Once you know what each field means, that same list becomes the fastest way to answer "is someone on my network who shouldn't be" or "what's actually using my bandwidth."</p>
+
+  <h2>The hostname is a hint, not a fact</h2>
+  <p>Most devices announce a hostname when they join a network, something like "Samsung-Galaxy-S23" or "DESKTOP-4F92K1." Treat this as a hint rather than a guarantee. Some devices report generic or blank hostnames, and a determined user can manually rename their device to anything. It's a fast first pass, not proof.</p>
+
+  <h2>The MAC address is the reliable identifier</h2>
+  <p>Every network interface has a MAC address, a unique hardware identifier separate from whatever hostname a device chooses to report. It normally doesn't change even if a device is renamed or reconnects. This is why renaming devices in Fiber Router Manager works by attaching your custom label to the MAC address underneath, so the label sticks even across reconnections.</p>
+
+  <h2>What actually counts as suspicious</h2>
+  <p>A single unfamiliar device isn't automatically a problem; smart bulbs, TVs, and guest phones all show up as unfamiliar entries the first time. What's worth investigating is a device with a blank or randomized hostname, connected during hours nobody in your house is normally active, using unusually high data. Any one of those alone is common. All three together is worth a closer look.</p>
+
+  <h2>A five-minute audit routine</h2>
+  <p>Once a week, scan your connected devices and give any unfamiliar-but-legitimate device (a new phone, a smart plug) a real name. That turns your device list from a wall of anonymous MAC addresses into something you can scan in five seconds next time, since anything not already labeled immediately stands out as new.</p>
+</article>
+
+<div class="article-footer">
+  <button class="like-btn" data-post-id="post-2" data-base-count="38">
+    <span class="heart">♡</span> <span class="like-count">38</span> likes
+  </button>
+  <a href="blog.html" class="link-ghost">← Back to all posts</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <span class="brand-mark"><img src="logo.png" alt=""></span>
+    <span class="footer-copy">© 2026 TR Tech Invents. All rights reserved.</span>
+  </div>
+  <div class="footer-links">
+    <a href="blog.html">Blog</a>
+    <a href="products.html">Products</a>
+    <a href="website-privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script src="likes.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

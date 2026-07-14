@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | TR Tech Invents</title>
+<meta name="description" content="Android apps built by TR Tech Invents, including Fiber Router Manager.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><img src="logo.png" alt="Fiber Router Manager logo"></span>
+    <span class="brand-name">Fiber Router Manager<span>NETWORK CONTROL</span></span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+      <a class="nav-link" href="website-privacy-policy.html">Privacy</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+    </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<header class="page-head">
+  <span class="eyebrow mono" style="text-align:center;">TR TECH INVENTS</span>
+  <h1>Apps we build ourselves.</h1>
+  <p>No filler apps, no ad-stuffed clones. Just tools built to solve one problem well.</p>
+</header>
+
+<section class="section">
+  <div class="product-list">
+
+    <div class="product-card-lg reveal">
+      <span class="brand-mark"><img src="logo.png" alt="Fiber Router Manager logo"></span>
+      <div>
+        <div class="product-tags">
+          <span class="data-tag local">ANDROID</span>
+          <span class="data-tag local">FREE</span>
+        </div>
+        <h3>Fiber Router Manager</h3>
+        <p class="desc">Most fiber router admin panels are slow, confusing, and built for ISP technicians, not for you. Fiber Router Manager gives you a clean mobile dashboard: scan every connected device, view and edit your Wi-Fi settings, run speed tests, and get alerted the moment a new device joins your network.</p>
+        <div style="display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;">
+          <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.tariqinvents.routerapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5c-.4.3-.7.8-.7 1.4v14.2c0 .6.3 1.1.7 1.4l.1.1L13 12.2v-.4L4.6 3.4z"/><path d="M16 8.7l-2.8-1.6L9.9 3.7 16 8.7z"/><path d="M16 15.3l-6.1 3.5L13.2 15z"/><path d="M17.8 11.1L16 12.2v-.4l1.8 1.1z"/></svg>
+            Get it on Google Play
+          </a>
+          <a class="link-ghost" href="privacy-policy.html">App privacy policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="coming-soon">
+      More apps from TR Tech Invents land here as they ship.
+    </div>
+
+    <!--
+      TO ADD ANOTHER APP:
+      Duplicate the .product-card-lg block above (icon, tags, name,
+      description, Play Store link) and place it before .coming-soon.
+    -->
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <span class="brand-mark"><img src="logo.png" alt=""></span>
+    <span class="footer-copy">© 2026 TR Tech Invents. All rights reserved.</span>
+  </div>
+  <div class="footer-links">
+    <a href="blog.html">Blog</a>
+    <a href="app-ads.txt">app-ads.txt</a>
+    <a href="website-privacy-policy.html">Website Privacy</a>
+    <a href="privacy-policy.html">App Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

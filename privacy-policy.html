@@ -17,11 +17,17 @@
     <span class="brand-name">Fiber Router Manager<span>NETWORK CONTROL</span></span>
   </a>
   <div class="nav-right">
-    <a class="nav-link" href="index.html">← Home</a>
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+      <a class="nav-link" href="products.html">Products</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
     </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
   </div>
 </nav>
 
@@ -31,7 +37,7 @@
 </header>
 
 <main class="policy">
-  <p class="policy-intro">This policy describes how Fiber Router Manager ("we", "our", "us") collects, uses, and protects your information. The app helps you manage your home network, run speed tests, and monitor connected devices.</p>
+  <p class="policy-intro">This policy describes how the <strong>Fiber Router Manager Android app</strong> ("we", "our", "us") collects, uses, and protects your information. The app helps you manage your home network, run speed tests, and monitor connected devices. Looking for the privacy policy for <strong>this website</strong> instead? <a href="website-privacy-policy.html" style="color:var(--cyan);">See it here</a>.</p>
 
   <section class="policy-section">
     <h2><span class="num">01</span> Information we collect</h2>
@@ -128,12 +134,19 @@
     <span class="footer-copy">© 2026 TR Tech Invents. All rights reserved.</span>
   </div>
   <div class="footer-links">
+    <a href="blog.html">Blog</a>
+    <a href="products.html">Products</a>
     <a href="app-ads.txt">app-ads.txt</a>
-    <a href="index.html">Home</a>
-    <a href="mailto:tariqahmed7@proton.mail">Contact</a>
+    <a href="website-privacy-policy.html">Website Privacy</a>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 
 <script src="theme.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
 </body>
 </html>

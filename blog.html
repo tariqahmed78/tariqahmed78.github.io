@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Fiber Router Manager</title>
+<meta name="description" content="Practical guides on home networking, Wi-Fi, and router management.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark"><img src="logo.png" alt="Fiber Router Manager logo"></span>
+    <span class="brand-name">Fiber Router Manager<span>NETWORK CONTROL</span></span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="products.html">Products</a>
+      <a class="nav-link" href="website-privacy-policy.html">Privacy</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+    </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<header class="page-head">
+  <h1>The blog.</h1>
+  <p>Practical guides on signal, devices, and speed — the three things Fiber Router Manager shows you.</p>
+</header>
+
+<section class="section">
+  <div class="post-grid">
+    <a href="post-1.html" class="post-card reveal">
+      <span class="data-tag local">SIGNAL</span>
+      <h3>Why Your Router Keeps Dropping Signal (And How to Actually Fix It)</h3>
+      <p>Restarting your router only fixes the symptom. Here's what's actually going on, and how to diagnose it properly.</p>
+      <div class="post-meta"><span>6 min read</span><span>Jul 2026</span></div>
+    </a>
+    <a href="post-2.html" class="post-card reveal">
+      <span class="data-tag local">DEVICES</span>
+      <h3>How to Read Your Connected Devices List Like a Network Admin</h3>
+      <p>Every MAC address and hostname on your network tells you something, if you know what to look for.</p>
+      <div class="post-meta"><span>5 min read</span><span>Jul 2026</span></div>
+    </a>
+    <a href="post-3.html" class="post-card reveal">
+      <span class="data-tag">SPEED</span>
+      <h3>Speed Test Results Explained: Upload, Download, and Ping</h3>
+      <p>Three numbers, one confusing report. Here's what each one actually tells you about your connection.</p>
+      <div class="post-meta"><span>5 min read</span><span>Jul 2026</span></div>
+    </a>
+
+    <!--
+      TO ADD A NEW POST:
+      1. Duplicate post-1.html, rename it, replace the title and article-body
+      2. Copy one <a class="post-card reveal"> block above, update href/tag/title/summary
+    -->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <span class="brand-mark"><img src="logo.png" alt=""></span>
+    <span class="footer-copy">© 2026 TR Tech Invents. All rights reserved.</span>
+  </div>
+  <div class="footer-links">
+    <a href="products.html">Products</a>
+    <a href="app-ads.txt">app-ads.txt</a>
+    <a href="website-privacy-policy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="reveal.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
