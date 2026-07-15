@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products | TR Tech Media</title>
-<meta name="description" content="Android apps built by TR Tech Invents, including Fiber Router Manager.">
+<title>About | TR Tech Media</title>
+<meta name="description" content="About TR Tech Media — technology news, articles, and apps.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="style.css">
@@ -21,8 +21,8 @@
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="articles.html">Articles</a>
-        <a href="products.html" class="active">Products</a>
-        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="about.html" class="active">About</a>
         <a href="contact.html">Contact</a>
       </div>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
@@ -35,29 +35,17 @@
 </header>
 
 <header class="page-head wrap">
-  <h1>Products</h1>
-  <p>Apps built by TR Tech Invents, our software team.</p>
+  <h1>About TR Tech Media</h1>
 </header>
 
-<section class="section wrap">
-  <div style="display:flex; flex-direction:column; gap:1.2rem;">
+<section class="about-body">
+  <p>TR Tech Media publishes clear, practical writing on technology — networking, Android development, and the everyday tools people use to get online. We write from real, hands-on experience rather than recycled advice, and we build software of our own under TR Tech Invents.</p>
+  <p>The goal is simple: explain how things actually work, without the fluff.</p>
 
-    <div class="product-card reveal">
-      <img src="logo.png" alt="Fiber Router Manager icon">
-      <div>
-        <div class="product-tags"><span>ANDROID</span><span>FREE</span></div>
-        <h3>Fiber Router Manager</h3>
-        <p class="desc">A clean mobile dashboard for your fiber router: scan connected devices, view and edit Wi-Fi settings, run speed tests, and get alerted when a new device joins your network.</p>
-        <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap;">
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.tariqinvents.routerapp" target="_blank" rel="noopener">Get it on Google Play</a>
-          <a class="link-accent" href="privacy-policy.html" style="font-size:0.85rem;">App privacy policy</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="coming-soon">More apps from TR Tech Invents will appear here as they ship.</div>
-
-    <!-- TO ADD ANOTHER APP: duplicate the .product-card block above -->
+  <div class="legal-box">
+    <h3>Legal</h3>
+    <a href="website-privacy-policy.html">Website Privacy Policy</a>
+    <a href="privacy-policy.html">App Privacy Policy (Fiber Router Manager)</a>
   </div>
 </section>
 
@@ -66,14 +54,13 @@
     <div class="copyright">© 2026 TR Tech Media. All rights reserved.</div>
     <div class="footer-links">
       <a href="articles.html">Articles</a>
-      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
 <script src="theme.js"></script>
-<script src="reveal.js"></script>
 <script>
   document.getElementById('nav-toggle').addEventListener('click', function () {
     document.getElementById('nav-links').classList.toggle('open');
