@@ -35,9 +35,20 @@
 </header>
 
 <section class="contact-body">
-  <h1 style="margin-bottom:1rem;">Contact</h1>
-  <p>You can contact us via email.</p>
-  <a class="email-box" href="mailto:tariqahmed7@proton.mail">tariqahmed7@proton.mail</a>
+  <div class="featured-card reveal" style="text-align: center; padding: 3rem 2rem;">
+    <span class="eyebrow" style="margin-bottom: 1.2rem;">Get in touch</span>
+    <h1 style="margin-top: 0.5rem; margin-bottom: 1rem; font-size: clamp(1.8rem, 3.5vw, 2.4rem);">Let's connect</h1>
+    <p style="color: var(--text-dim); max-width: 36ch; margin: 0 auto 2.2rem; line-height: 1.6;">
+      Have a question about our articles, feedback on Fiber Router Manager, or want to collaborate? Send us an email and we'll reply as soon as possible.
+    </p>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+      <a class="email-box" href="mailto:tariqahmed7@proton.mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        tariqahmed7@proton.mail
+      </a>
+    </div>
+  </div>
 </section>
 
 <footer class="site-footer wrap">
@@ -52,6 +63,7 @@
 </footer>
 
 <script src="theme.js"></script>
+<script src="reveal.js"></script>
 <script>
   document.getElementById('nav-toggle').addEventListener('click', function () {
     document.getElementById('nav-links').classList.toggle('open');

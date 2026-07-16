@@ -5,6 +5,7 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nodes = [];
   var W, H, DPR;
+  var mouse = { x: null, y: null, active: false };
 
   function cssVar(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -57,6 +58,28 @@
         if (n.x < 0 || n.x > W) n.vx *= -1;
         if (n.y < 0 || n.y > H * 0.85) n.vy *= -1;
       }
+
+      // Mouse interactive link
+      if (mouse.active) {
+        var dxM = n.x - mouse.x;
+        var dyM = n.y - mouse.y;
+        var distM = Math.sqrt(dxM * dxM + dyM * dyM);
+        var MOUSE_LINK = 150;
+        if (distM < MOUSE_LINK) {
+          var opM = (0.45 * (1 - distM / MOUSE_LINK)).toFixed(3);
+          ctx.strokeStyle = 'rgba(' + col + ',' + opM + ')';
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+
+          // Gentle pull attraction
+          var pull = (MOUSE_LINK - distM) / MOUSE_LINK;
+          n.x -= (dxM / distM) * pull * 0.35;
+          n.y -= (dyM / distM) * pull * 0.35;
+        }
+      }
     }
 
     for (var a = 0; a < nodes.length; a++) {
@@ -97,6 +120,17 @@
     makeNodes();
     step(0);
   }
+
+  window.addEventListener('mousemove', function (e) {
+    var rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  });
+
+  window.addEventListener('mouseleave', function () {
+    mouse.active = false;
+  });
 
   window.addEventListener('resize', function () {
     resize();

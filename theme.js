@@ -18,7 +18,7 @@
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
     btn.addEventListener('click', function () {
-      apply(root.getAttribute('data-theme') !== 'light');
+      apply(root.getAttribute('data-theme') === 'light');
     });
   });
 })();

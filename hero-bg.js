@@ -7,6 +7,8 @@
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) { canvas.style.display = 'none'; return; }
 
+    var mouse = { x: null, y: null, active: false };
+
     function resize() {
       W = canvas.width = canvas.offsetWidth;
       H = canvas.height = canvas.offsetHeight;
@@ -19,7 +21,7 @@
         r: Math.random() * 2.2 + 0.8,
         vx: (Math.random() - 0.5) * 0.35,
         vy: (Math.random() - 0.5) * 0.35,
-        hue: Math.random() < 0.6 ? 245 : 280, // indigo or purple
+        hue: Math.random() < 0.45 ? 195 : (Math.random() < 0.8 ? 215 : 275), // sky-blue, royal blue, or purple
         o: Math.random() * 0.6 + 0.3
       };
     }
@@ -42,6 +44,28 @@
         if (n.x > W + 20) n.x = -20;
         if (n.y < -20) n.y = H + 20;
         if (n.y > H + 20) n.y = -20;
+
+        // Mouse interaction
+        if (mouse.active) {
+          var dxM = n.x - mouse.x;
+          var dyM = n.y - mouse.y;
+          var distM = Math.sqrt(dxM * dxM + dyM * dyM);
+          var MOUSE_LINK = 150;
+          if (distM < MOUSE_LINK) {
+            var alphaM = (0.35 * (1 - distM / MOUSE_LINK)).toFixed(3);
+            ctx.beginPath();
+            ctx.moveTo(n.x, n.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = 'hsla(' + n.hue + ',85%,72%,' + alphaM + ')';
+            ctx.lineWidth = 1.1;
+            ctx.stroke();
+
+            // Gently attract nodes to mouse
+            var pull = (MOUSE_LINK - distM) / MOUSE_LINK;
+            n.x -= (dxM / distM) * pull * 0.45;
+            n.y -= (dyM / distM) * pull * 0.45;
+          }
+        }
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -69,6 +93,18 @@
 
     init();
     draw();
+
+    window.addEventListener('mousemove', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = true;
+    });
+
+    window.addEventListener('mouseleave', function () {
+      mouse.active = false;
+    });
+
     window.addEventListener('resize', function () {
       cancelAnimationFrame(animId);
       init(); draw();
