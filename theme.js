@@ -1,32 +1,24 @@
 (function () {
   var root = document.documentElement;
-  var STORAGE_KEY = 'trtm-theme';
+  var KEY = 'trtm-theme';
 
-  function applyTheme(isDark) {
-    root.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    try { localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light'); } catch(e){}
+  function apply(dark) {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem(KEY, dark ? 'dark' : 'light'); } catch(e){}
   }
 
-  // On every page load: check saved preference first, else follow system
-  var saved = null;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch(e){}
-
-  if (saved === 'dark') {
-    applyTheme(true);
-  } else if (saved === 'light') {
-    applyTheme(false);
-  } else {
-    // No saved preference — follow system (dark is default for most tech users)
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(prefersDark);
-  }
+  // Apply immediately before paint (prevents flash)
+  var saved;
+  try { saved = localStorage.getItem(KEY); } catch(e){}
+  if (saved === 'light') { apply(false); }
+  else if (saved === 'dark') { apply(true); }
+  else { apply(true); } // default dark
 
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
     btn.addEventListener('click', function () {
-      var isDark = root.getAttribute('data-theme') === 'dark';
-      applyTheme(!isDark);
+      apply(root.getAttribute('data-theme') !== 'light');
     });
   });
 })();

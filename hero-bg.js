@@ -3,8 +3,7 @@
     var canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
-    var W, H, particles, animId;
-
+    var W, H, nodes, animId;
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) { canvas.style.display = 'none'; return; }
 
@@ -13,56 +12,54 @@
       H = canvas.height = canvas.offsetHeight;
     }
 
-    function isDark() {
-      return document.documentElement.getAttribute('data-theme') === 'dark';
-    }
-
-    function mkParticle() {
+    function mkNode() {
       return {
         x: Math.random() * W,
         y: Math.random() * H,
-        r: Math.random() * 1.6 + 0.4,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        o: Math.random() * 0.5 + 0.2
+        r: Math.random() * 2.2 + 0.8,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        hue: Math.random() < 0.6 ? 245 : 280, // indigo or purple
+        o: Math.random() * 0.6 + 0.3
       };
     }
 
     function init() {
       resize();
-      var count = Math.min(80, Math.floor(W * H / 10000));
-      particles = [];
-      for (var i = 0; i < count; i++) particles.push(mkParticle());
+      var count = Math.min(90, Math.floor(W * H / 7000));
+      nodes = [];
+      for (var i = 0; i < count; i++) nodes.push(mkNode());
     }
 
     function draw() {
       ctx.clearRect(0, 0, W, H);
-      var dark = isDark();
-      var dotCol = dark ? 'rgba(180,190,220,' : 'rgba(60,70,120,';
-      var lineCol = dark ? 'rgba(140,160,220,' : 'rgba(46,79,158,';
-      var LINK = 110;
+      var LINK = 130;
 
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < -20) n.x = W + 20;
+        if (n.x > W + 20) n.x = -20;
+        if (n.y < -20) n.y = H + 20;
+        if (n.y > H + 20) n.y = -20;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = dotCol + p.o + ')';
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'hsla(' + n.hue + ',85%,72%,' + n.o + ')';
         ctx.fill();
 
-        for (var j = i + 1; j < particles.length; j++) {
-          var q = particles[j];
-          var dx = p.x - q.x, dy = p.y - q.y;
+        for (var j = i + 1; j < nodes.length; j++) {
+          var m = nodes[j];
+          var dx = n.x - m.x, dy = n.y - m.y;
           var dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK) {
+            var alpha = (0.22 * (1 - dist / LINK)).toFixed(3);
+            var midHue = (n.hue + m.hue) / 2;
             ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = lineCol + (0.18 * (1 - dist / LINK)).toFixed(3) + ')';
-            ctx.lineWidth = 0.8;
+            ctx.moveTo(n.x, n.y);
+            ctx.lineTo(m.x, m.y);
+            ctx.strokeStyle = 'hsla(' + midHue + ',80%,72%,' + alpha + ')';
+            ctx.lineWidth = 0.9;
             ctx.stroke();
           }
         }
@@ -72,10 +69,9 @@
 
     init();
     draw();
-    window.addEventListener('resize', function () { cancelAnimationFrame(animId); init(); draw(); });
-
-    // Re-draw colour when theme changes (MutationObserver on data-theme)
-    var mo = new MutationObserver(function () { /* colour applied dynamically in draw() */ });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    window.addEventListener('resize', function () {
+      cancelAnimationFrame(animId);
+      init(); draw();
+    });
   });
 })();
