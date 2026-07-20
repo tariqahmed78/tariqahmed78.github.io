@@ -735,3 +735,24 @@ body{animation:page-fade .35s ease}
 }
 .cta-banner h3{font-size:1.2rem;margin-bottom:.4rem}
 .cta-banner p{color:var(--text-dim);margin:0;font-size:.92rem}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================================== */
+@media(max-width: 768px) {
+  .wrap { padding: 0 1rem; }
+  .page-head h1 { font-size: 2.1rem; }
+  .featured-card h1 { font-size: 1.85rem; }
+  .hero-canvas-wrap { min-height: 380px; padding: 2.5rem 0; }
+  .hero-tagline { font-size: .95rem; text-align: left; }
+  .article-card { padding: 1.25rem; }
+  .product-card { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .product-icon-box { margin-bottom: -0.5rem; }
+  .cta-banner { flex-direction: column; text-align: left; align-items: flex-start; }
+  .cta-banner .btn { width: 100%; text-align: center; }
+  .stats-grid { gap: 0.8rem; }
+  .stat-card { padding: 1.2rem; }
+  .article-body { padding: 0 1rem; }
+  .article-body h2 { font-size: 1.3rem; margin-top: 2rem; }
+  .legal { padding: 2rem 1rem 3rem; }
+}
