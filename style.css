@@ -778,7 +778,7 @@ body{animation:page-fade .35s ease}
   font-size: 1.05rem;
   padding: 0.9rem 1.8rem;
   background: var(--accent);
-  color: white;
+  color: white !important;
   text-decoration: none;
 }
 .bbise-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
