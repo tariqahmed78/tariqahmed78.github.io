@@ -733,8 +733,72 @@ body{animation:page-fade .35s ease}
   background:linear-gradient(135deg,rgba(14,165,233,.04),rgba(37,99,235,.04));
   pointer-events:none;
 }
-.cta-banner h3{font-size:1.2rem;margin-bottom:.4rem}
+.cta-banner h2{font-size:1.8rem;margin:0 0 .5rem;color:var(--text)}
 .cta-banner p{color:var(--text-dim);margin:0;font-size:.92rem}
+
+/* ==========================================================================
+   BBISE Result Widget
+   ========================================================================== */
+.bbise-result-widget {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin: 2rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+[data-theme="dark"] .bbise-result-widget {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.bbise-header {
+  background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(59,130,246,0.05) 100%);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.bbise-icon-bg {
+  width: 54px; height: 54px;
+  background: var(--accent);
+  color: white;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+}
+.bbise-icon-bg .icon { width: 28px; height: 28px; }
+.bbise-title { margin: 0 0 0.3rem 0; font-size: 1.25rem; color: var(--text); }
+.bbise-subtitle { margin: 0; font-size: 0.9rem; color: var(--text-dim); }
+.bbise-content { padding: 2rem; }
+.bbise-content p { margin-top: 0; margin-bottom: 1.5rem; }
+.bbise-btn {
+  display: inline-flex;
+  width: auto;
+  font-size: 1.05rem;
+  padding: 0.9rem 1.8rem;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+}
+.bbise-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+.bbise-secure-note {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.bbise-secure-note .icon { width: 14px; height: 14px; color: #10b981; }
+
+@media(max-width: 480px) {
+  .bbise-header { padding: 1.2rem; gap: 1rem; }
+  .bbise-icon-bg { width: 44px; height: 44px; border-radius: 10px; }
+  .bbise-icon-bg .icon { width: 22px; height: 22px; }
+  .bbise-title { font-size: 1.1rem; }
+  .bbise-subtitle { font-size: 0.8rem; }
+  .bbise-content { padding: 1.2rem; }
+  .bbise-btn { width: 100%; justify-content: center; }
+}
 
 /* ==========================================================================
    MOBILE OPTIMIZATIONS — Do NOT modify desktop styles above
