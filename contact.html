@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | TR Tech Media</title>
-<meta name="description" content="Contact TR Tech Media.">
+<meta name="description" content="Get in touch with TR Tech Media — questions, feedback, or collaboration.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="style.css">
@@ -13,17 +13,14 @@
 
 <header class="site-header">
   <nav class="nav wrap">
-    <a class="wordmark" href="index.html">
-      <span class="mark">TR</span>
-      <span class="name">TR Tech Media</span>
-    </a>
+    <a class="wordmark" href="index.html"><span class="mark">TR</span><span class="name">TR Tech Media</span></a>
     <div class="nav-right">
       <div class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="articles.html">Articles</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="index.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <a href="articles.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+        <a href="products.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+        <a href="about.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+        <a href="contact.html" class="active"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
       </div>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
@@ -34,31 +31,75 @@
   </nav>
 </header>
 
-<section class="contact-body">
-  <div class="featured-card reveal" style="text-align: center; padding: 3rem 2rem;">
-    <span class="eyebrow" style="margin-bottom: 1.2rem;">Get in touch</span>
-    <h1 style="margin-top: 0.5rem; margin-bottom: 1rem; font-size: clamp(1.8rem, 3.5vw, 2.4rem);">Let's connect</h1>
-    <p style="color: var(--text-dim); max-width: 36ch; margin: 0 auto 2.2rem; line-height: 1.6;">
-      Have a question about our articles, feedback on Fiber Router Manager, or want to collaborate? Send us an email and we'll reply as soon as possible.
+<section class="contact-body" style="position:relative;overflow:hidden">
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <div class="contact-card reveal">
+    <span class="eyebrow" style="margin-bottom:1rem;">Get in touch</span>
+    <h1 style="margin-top:.5rem;margin-bottom:1rem;font-size:clamp(1.8rem,3.5vw,2.4rem);">Let's connect</h1>
+    <p style="color:var(--text-dim);max-width:38ch;margin:0 auto 2rem;line-height:1.7;">
+      Have a question about our articles, feedback on Fiber Router Manager, or want to collaborate? We'd love to hear from you.
     </p>
-    
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 1.2rem;">
+
+    <div class="contact-methods">
       <a class="email-box" href="mailto:tariqahmed7@proton.mail">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         tariqahmed7@proton.mail
       </a>
     </div>
+
+    <div class="social-links" style="margin-top:2rem;">
+      <a class="social-link" href="mailto:tariqahmed7@proton.mail" aria-label="Email">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a class="social-link" href="https://play.google.com/store/apps/developer?id=TR+Tech+Invents" target="_blank" rel="noopener" aria-label="Google Play">
+        <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+      <a class="social-link" href="products.html" aria-label="Products">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </a>
+      <a class="social-link" href="articles.html" aria-label="Articles">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </a>
+    </div>
+
+    <p style="color:var(--text-dim);font-size:.82rem;margin-top:1.5rem;opacity:.7">
+      We typically respond within 24 hours.
+    </p>
   </div>
 </section>
 
+<hr class="gradient-divider">
+
 <footer class="site-footer wrap">
-  <div class="footer-row">
-    <div class="copyright">© 2026 TR Tech Media. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="articles.html">Articles</a>
-      <a href="products.html">Products</a>
-      <a href="about.html">About</a>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="wordmark" href="index.html"><span class="mark">TR</span><span class="name">TR Tech Media</span></a>
+      <p>Technology writing and tools built from real hands-on experience.</p>
+      <div class="footer-socials">
+        <a href="mailto:tariqahmed7@proton.mail" aria-label="Email"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        <a href="https://play.google.com/store/apps/developer?id=TR+Tech+Invents" target="_blank" rel="noopener" aria-label="Google Play"><svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></a>
+      </div>
     </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="index.html"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+      <a href="articles.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+      <a href="products.html"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+      <a href="contact.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+      <a href="website-privacy-policy.html"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="copyright"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>© 2026 TR Tech Media. All rights reserved.</div>
   </div>
 </footer>
 
