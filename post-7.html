@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Router's Admin Page: What All Those Settings Actually Mean | TR Tech Media</title>
+<meta name="description" content="DHCP, DNS, QoS, UPnP — your router is full of menus you've never touched. Here's what they do and which ones actually matter.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap">
+    <a class="wordmark" href="index.html"><span class="mark">TR</span><span class="name">TR Tech Media</span></a>
+    <div class="nav-right">
+      <div class="nav-links" id="nav-links">
+        <a href="index.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <a href="articles.html" class="active"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+        <a href="products.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+        <a href="about.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+        <a href="contact.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<header class="article-header wrap">
+  <span class="tag">
+    <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+    Networking
+  </span>
+  <h1>Your Router's Admin Page: What All Those Settings Actually Mean</h1>
+  <div class="article-meta">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span>8 min read</span>
+    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Published Jul 2026</span>
+  </div>
+</header>
+
+<article class="article-body reveal">
+  <p>Every router has an admin page. You get to it by typing something like 192.168.1.1 into your browser, logging in with credentials you've probably forgotten, and then you're greeted by a wall of tabs and settings that look like they were designed by someone who actively hates normal people. DHCP? DNS? QoS? Port forwarding? It's intimidating enough that most people never touch anything — and honestly, for most settings, that's fine. But a few of them are genuinely useful once you know what they do.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+    DHCP: The bouncer handing out addresses
+  </h2>
+  <p>DHCP stands for Dynamic Host Configuration Protocol, which is a fancy way of saying "the thing that gives every device on your network an IP address." When your phone connects to Wi-Fi, it doesn't inherently know what address to use. It sends out a broadcast asking "hey, can someone give me an address?" and the DHCP server (which is built into your router) replies with one.</p>
+  <p>The DHCP settings page usually lets you define the range of addresses it hands out (like 192.168.1.100 through 192.168.1.200) and the lease time — how long a device gets to keep its address before it has to ask again. You can also set up "DHCP reservations," which is basically telling the router "whenever you see this specific device, always give it this specific address." This is incredibly useful for things like printers, NAS drives, or smart home hubs that you want to reach at a predictable address every time.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    DNS: The phonebook nobody thinks about
+  </h2>
+  <p>DNS (Domain Name System) translates human-readable names like "google.com" into the IP addresses that computers actually use. By default, your router uses whatever DNS server your ISP provides. These tend to work fine, but they're not always the fastest or the most private.</p>
+  <p>Switching your DNS server is one of the easiest and most impactful settings you can change. Cloudflare's DNS (1.1.1.1) is fast and privacy-focused. Google's (8.8.8.8) is reliable and well-maintained. If you have kids, you can use a filtering DNS like OpenDNS Family Shield that blocks adult content at the network level — no software to install on every device, no browser extensions to manage. You set it once on the router and every device on the network uses it automatically.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    QoS: Traffic control for your bandwidth
+  </h2>
+  <p>QoS stands for Quality of Service, and it's essentially a priority system for your internet traffic. Imagine your bandwidth as a single-lane road. Without QoS, every car (every device, every app) takes its turn randomly. With QoS, you can tell the router "hey, video calls get to go first, gaming traffic gets the express lane, and that torrent download can wait."</p>
+  <p>The reality is that QoS matters most when your connection is under heavy load. If you have a 500 Mbps connection and you're the only person using it, QoS won't make a noticeable difference. But if you have a 50 Mbps connection shared between four people, and someone starts downloading a massive file while you're on a Zoom call, QoS is the difference between a smooth call and a pixelated mess. Most modern routers offer a simplified QoS interface where you can drag devices or categories into "high" and "low" priority buckets. It takes thirty seconds and it's worth it.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    UPnP and port forwarding: Opening doors
+  </h2>
+  <p>Your router acts as a firewall by default — it blocks unsolicited incoming connections. This is good for security but occasionally annoying for things like game servers, remote desktop access, or certain smart home setups that need to accept connections from the outside world.</p>
+  <p>UPnP (Universal Plug and Play) lets devices on your network automatically open ports as needed. Your gaming console might open specific ports for multiplayer. Your torrent client might open one for peer connections. It's convenient but carries some security risk, since malware on your network could theoretically use UPnP to open a back door. Most security experts recommend disabling UPnP and instead manually forwarding only the specific ports you need. Is it more work? Yes. Is it safer? Also yes.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    The settings that actually matter for most people
+  </h2>
+  <p>If you're reading this and feeling overwhelmed, here's the practical takeaway: change your DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8). Set up DHCP reservations for any device you need to reliably find on your network. Turn on QoS if your household has more people than megabits. And leave everything else alone unless you have a specific reason to change it. Your router is designed to work out of the box, and most of the time, it does exactly that.</p>
+</article>
+
+<div class="article-footer">
+  <button class="like-btn" data-post-id="post-7">
+    <span class="heart">♡</span> <span class="like-count">–</span> likes
+  </button>
+  <a href="articles.html" class="link-accent" style="display:flex;align-items:center;gap:.3rem">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to all articles
+  </a>
+</div>
+
+<hr class="gradient-divider">
+
+<footer class="site-footer wrap">
+  <div class="footer-row">
+    <div class="copyright"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>© 2026 TR Tech Media. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="articles.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+      <a href="products.html"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+      <a href="about.html"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+      <a href="contact.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="likes.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

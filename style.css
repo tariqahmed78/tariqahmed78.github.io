@@ -737,22 +737,184 @@ body{animation:page-fade .35s ease}
 .cta-banner p{color:var(--text-dim);margin:0;font-size:.92rem}
 
 /* ==========================================================================
-   MOBILE OPTIMIZATIONS
+   MOBILE OPTIMIZATIONS — Do NOT modify desktop styles above
    ========================================================================== */
+
+/* ---- Tablet & small laptop (max-width: 768px) ---- */
 @media(max-width: 768px) {
   .wrap { padding: 0 1rem; }
-  .page-head h1 { font-size: 2.1rem; }
-  .featured-card h1 { font-size: 1.85rem; }
-  .hero-canvas-wrap { min-height: 380px; padding: 2.5rem 0; }
-  .hero-tagline { font-size: .95rem; text-align: left; }
+
+  /* Hero */
+  .hero-overlay { padding: 3rem 0 2.5rem; }
+  .hero-tagline { font-size: .85rem; }
+  .featured-card { padding: 1.5rem; }
+  .featured-card h1 { font-size: 1.6rem; }
+  .featured-card p { font-size: .92rem; }
+
+  /* Side items */
+  .side-item { padding: 1rem; }
+  .side-item h3 { font-size: .92rem; }
+
+  /* Articles */
+  .article-grid { gap: 1.2rem; }
   .article-card { padding: 1.25rem; }
-  .product-card { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
-  .product-icon-box { margin-bottom: -0.5rem; }
-  .cta-banner { flex-direction: column; text-align: left; align-items: flex-start; }
-  .cta-banner .btn { width: 100%; text-align: center; }
+  .article-card h3 { font-size: .98rem; }
+  .section { padding: 2.5rem 0; }
+  .section-head { margin-bottom: 1.5rem; }
+
+  /* Article body */
+  .article-header { padding: 2.5rem 0 1.2rem; }
+  .article-body { padding: 2rem 1rem .5rem; }
+  .article-body h2 { font-size: 1.2rem; margin-top: 1.8rem; }
+  .article-body p { font-size: .96rem; line-height: 1.75; }
+  .article-footer { padding: 1.2rem 1rem 2.5rem; }
+
+  /* Page head */
+  .page-head { padding: 2.5rem 0 1.5rem; }
+  .page-head h1 { font-size: 1.9rem; }
+  .page-head p { font-size: .92rem; }
+
+  /* Products */
+  .product-card { padding: 1.5rem; }
+  .product-card h3 { font-size: 1.05rem; }
+  .product-tags { flex-wrap: wrap; }
+
+  /* App detail page */
+  .app-hero { padding: 2.5rem 0 2rem; }
+  .app-icon-lg { width: 80px; height: 80px; border-radius: 20px; }
+  .app-hero-text h1 { font-size: 1.6rem; }
+  .app-hero-text .subtitle { font-size: .95rem; }
+  .feature-card { padding: 1.3rem; }
+  .feature-card h3 { font-size: .92rem; }
+  .app-section { padding: 2.5rem 0; }
+
+  /* Data / Req cards */
+  .data-card { padding: 1.1rem; }
+  .req-card { padding: 1.1rem; }
+
+  /* About */
+  .about-body { padding: 2rem 1rem 1rem; }
+  .about-mission { padding: 1.5rem; }
+  .about-mission h2 { font-size: 1.15rem; }
   .stats-grid { gap: 0.8rem; }
   .stat-card { padding: 1.2rem; }
-  .article-body { padding: 0 1rem; }
-  .article-body h2 { font-size: 1.3rem; margin-top: 2rem; }
+  .stat-card .stat-number { font-size: 1.5rem; }
+
+  /* Contact */
+  .contact-card { padding: 2rem 1.5rem; }
+  .contact-card h2 { font-size: 1.8rem; }
+  .contact-body p { font-size: .95rem; }
+  .social-links { gap: .6rem; }
+
+  /* CTA */
+  .cta-banner { flex-direction: column; text-align: left; align-items: flex-start; }
+  .cta-banner .btn { width: 100%; text-align: center; }
+
+  /* Footer */
+  .site-footer { padding: 2.5rem 0 1.8rem; }
+  .footer-grid { gap: 2rem; }
+
+  /* Legal */
   .legal { padding: 2rem 1rem 3rem; }
+  .legal h1 { font-size: 1.6rem; }
+
+  /* Ambient blobs — reduce on mobile for performance */
+  body::before { width: 400px; height: 400px; }
+  body::after { width: 350px; height: 350px; }
 }
+
+/* ---- Small phone (max-width: 480px) ---- */
+@media(max-width: 480px) {
+  .wrap { padding: 0 .85rem; }
+
+  /* Nav */
+  .wordmark .name { font-size: .95rem; }
+  .wordmark .mark { width: 28px; height: 28px; font-size: .75rem; }
+
+  /* Hero */
+  .hero-overlay { padding: 2rem 0 1.8rem; }
+  .hero-tagline { font-size: .75rem; letter-spacing: .06em; }
+  .featured-card { padding: 1.2rem; border-radius: 14px; }
+  .featured-card h1 { font-size: 1.35rem; }
+  .featured-card p { font-size: .85rem; }
+  .featured-meta { font-size: .72rem; gap: .6rem; flex-wrap: wrap; }
+  .side-item { padding: .9rem; }
+  .side-item h3 { font-size: .88rem; }
+
+  /* Article grid */
+  .article-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .article-card { padding: 1.1rem; border-radius: 12px; }
+  .article-card .card-icon { width: 36px; height: 36px; border-radius: 10px; }
+  .article-card .card-icon .icon { width: 17px; height: 17px; }
+  .article-card h3 { font-size: .92rem; }
+  .article-card p { font-size: .82rem; }
+  .article-meta { font-size: .7rem; gap: .5rem; flex-wrap: wrap; }
+
+  /* Article body */
+  .article-header h1 { font-size: 1.4rem; }
+  .article-body { padding: 1.5rem .85rem .5rem; }
+  .article-body p { font-size: .9rem; margin-bottom: 1rem; }
+  .article-body h2 { font-size: 1.08rem; margin-top: 1.5rem; gap: .35rem; }
+  .article-footer { padding: 1rem .85rem 2rem; gap: .8rem; }
+  .like-btn { padding: .5rem 1rem; font-size: .8rem; }
+
+  /* Page head */
+  .page-head { padding: 2rem 0 1.2rem; }
+  .page-head h1 { font-size: 1.6rem; }
+  .page-head p { font-size: .85rem; }
+
+  /* Products */
+  .product-card img { width: 60px; height: 60px; border-radius: 14px; }
+  .app-icon-lg { width: 64px; height: 64px; border-radius: 16px; }
+  .app-hero-text h1 { font-size: 1.35rem; }
+  .app-cta-row { gap: .8rem; }
+  .btn { padding: .7rem 1.4rem; font-size: .85rem; }
+  .btn-outline { padding: .6rem 1.1rem; font-size: .82rem; }
+
+  /* Feature grid */
+  .feature-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .feature-row { grid-template-columns: 1fr; gap: 1rem; }
+  .feature-card { padding: 1.2rem; }
+
+  /* About */
+  .about-body { padding: 1.5rem .85rem 1rem; }
+  .about-mission { padding: 1.2rem; }
+  .about-mission h2 { font-size: 1.05rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .contact-card { padding: 1.5rem 1.2rem; border-radius: 14px; }
+  .contact-card h2 { font-size: 1.5rem; }
+  .contact-body p { font-size: .88rem; }
+  .social-link { padding: .6rem .9rem; font-size: .88rem; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .copyright { font-size: .72rem; }
+
+  /* Legal */
+  .legal { padding: 1.5rem .85rem 2.5rem; }
+  .legal h1 { font-size: 1.4rem; }
+  .legal h2 { font-size: 1rem; }
+
+  /* Tags */
+  .tag { font-size: .62rem; padding: .25rem .55rem; }
+
+  /* Eyebrow */
+  .eyebrow { font-size: .65rem; }
+
+  /* Newsletter */
+  .newsletter-cta { padding: 1.5rem; }
+  .newsletter-cta h3 { font-size: 1rem; }
+
+  /* Ambient blobs — smaller on phone */
+  body::before { width: 250px; height: 250px; opacity: 0.1; }
+  body::after { width: 200px; height: 200px; opacity: 0.08; }
+
+  /* Reduce animation intensity on small screens */
+  .floating-shapes .shape:nth-child(1) { width: 180px; height: 180px; }
+  .floating-shapes .shape:nth-child(2) { width: 120px; height: 120px; }
+  .floating-shapes .shape:nth-child(3) { width: 90px; height: 90px; }
+}
+

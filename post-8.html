@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Why Your Smart Home Devices Keep Disconnecting | TR Tech Media</title>
-<meta name="description" content="Smart plugs and bulbs are notorious for dropping off the network. Here is how to lock them in.">
+<title>Ethernet vs. Wi-Fi: When the Cable Actually Matters | TR Tech Media</title>
+<meta name="description" content="Wi-Fi is convenient, but sometimes a cable is the answer. Here's when it makes a real difference and when you're fine without it.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="style.css">
@@ -36,44 +36,51 @@
     <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
     Networking
   </span>
-  <h1>Why Your Smart Home Devices Keep Disconnecting (And How to Fix It)</h1>
+  <h1>Ethernet vs. Wi-Fi: When the Cable Actually Matters</h1>
   <div class="article-meta">
     <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    <span>4 min read</span>
+    <span>6 min read</span>
     <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     <span>Published Jul 2026</span>
   </div>
 </header>
 
 <article class="article-body reveal">
-  <p>Smart plugs, bulbs, and speakers are great — when they work. But if you've spent any time with a smart home setup, you know the drill: everything runs perfectly for a week, then one morning your kitchen light ignores the schedule, your smart plug shows "Offline" in the app, and the voice assistant pretends it's never heard of your living room lamp. You didn't change anything. It just… stopped.</p>
-  <p>The frustrating part is that this rarely happens to your phone or laptop. Those devices stay connected for days without a hiccup. So what's different about smart home gear?</p>
+  <p>I'll be honest: I spent years thinking Ethernet cables were relics from the early 2000s. My Wi-Fi worked fine. My phone, my laptop, my TV — all connected wirelessly, all perfectly happy. Then I plugged my desktop into the router with a $5 Cat6 cable, ran a speed test, and felt like an idiot for not doing it sooner.</p>
+  <p>But the truth is more nuanced than "cables are always better." Sometimes Wi-Fi is genuinely fine, and dragging a cable across your apartment isn't worth the hassle. So let's talk about when the cable matters and when it doesn't.</p>
 
   <h2>
-    <svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-    The 2.4GHz problem
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    The speed difference (and why it's often irrelevant)
   </h2>
-  <p>Almost all budget smart home devices — and even some expensive ones — operate exclusively on the 2.4GHz Wi-Fi band. They can't connect to 5GHz at all. This was a deliberate choice by manufacturers: 2.4GHz has better range and wall penetration, which matters for a light bulb three rooms away from your router. But it also means they're stuck on the most crowded band in your house.</p>
-  <p>Your neighbors' routers are on 2.4GHz. Bluetooth uses 2.4GHz. Your microwave leaks interference into 2.4GHz. Baby monitors, cordless phones, wireless keyboards — all of them are competing for the same narrow slice of spectrum. And here's the kicker: most modern routers use a single SSID (network name) for both 2.4GHz and 5GHz bands, with "band steering" that automatically pushes devices to 5GHz when possible. Your phone handles this gracefully. Your $12 smart plug from Amazon? Not so much. It gets confused during setup, connects to the wrong band momentarily, or loses its grip during a band-steering event and just gives up.</p>
+  <p>A standard Ethernet cable (Cat5e or better) supports gigabit speeds — 1,000 Mbps. Modern Wi-Fi 6 can also hit gigabit speeds, in theory. In practice, Wi-Fi rarely sustains those speeds for more than a few seconds because it has to deal with signal interference, wall penetration, distance from the router, and the fact that it's a shared medium (every Wi-Fi device is essentially shouting into the same room and hoping to be heard).</p>
+  <p>But here's the thing: unless you're regularly transferring huge files between devices on your local network, or your internet plan exceeds what your Wi-Fi can deliver, the speed difference is academic. Streaming Netflix at 4K uses about 25 Mbps. Even mediocre Wi-Fi handles that without breaking a sweat. Browsing the web, checking email, scrolling social media — none of these activities come anywhere close to saturating a modern wireless connection.</p>
 
   <h2>
-    <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-    The DHCP lease problem nobody mentions
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Latency: Where Ethernet actually wins
   </h2>
-  <p>There's another culprit that rarely gets talked about: DHCP leases. Every device on your network borrows an IP address from your router, and that loan has an expiration date (typically 24 hours). When the lease expires, the device has to renew it. Your phone and laptop handle this seamlessly — they've had decades of software refinement. But the tiny, cheap microcontroller inside a smart plug? It sometimes fumbles the renewal. It lets the old lease expire, fails to get a new one quickly enough, and falls off the network. From your perspective, it looks like a random disconnect. In reality, it's a failed address renewal.</p>
+  <p>This is the real reason to use a cable, and almost nobody talks about it in the right way. Speed is about how much data you can move per second. Latency is about how quickly any single piece of data gets from point A to point B. On Ethernet, latency is almost zero — sub-millisecond. On Wi-Fi, it's typically 2 to 10 milliseconds, and it can spike to 50ms or more when the network is congested.</p>
+  <p>For gaming, this is the difference between a responsive experience and one where you feel like your inputs are delayed. For video calls, it's the difference between smooth conversation and that awkward moment where both people start talking at the same time because the audio is slightly behind. For file transfers and backups to a NAS on your local network, Ethernet is so much faster that it feels like a different technology entirely.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Reliability: The underrated factor
+  </h2>
+  <p>Wi-Fi connections drop. Not always dramatically — sometimes it's a brief hiccup, a momentary slowdown, a single packet lost in the noise. You don't notice it when you're reading an article, but you absolutely notice it when you're in the middle of a ranked match or a job interview over Zoom. Ethernet doesn't do this. A wired connection is either working or it's not. There's no signal strength to worry about, no interference from the microwave, no congestion from the neighbor's baby monitor. It just works.</p>
+  <p>This stability is also why every serious home server setup, every NAS, every media server, and every workstation in a professional environment uses Ethernet. It's not about speed — it's about predictability.</p>
 
   <h2>
     <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-    How to fix it for good
+    When to use what
   </h2>
-  <p>First: if your router supports it, create a separate 2.4GHz-only SSID (something like "Home_IoT"). Connect all your smart devices to this dedicated network. This eliminates band-steering confusion completely and gives them a stable, predictable connection. Many routers call this "splitting the bands" in their Wi-Fi settings.</p>
-  <p>Second: assign static IP addresses (or "DHCP reservations") to your most important smart devices through your router's admin panel. This means the router always gives that device the same address, and the device never has to worry about lease renewals going wrong. Look for a setting called "Address Reservation" or "Static DHCP" in your router's interface.</p>
-  <p>Third: check your router's maximum client limit. Some budget routers start struggling once 20+ devices are connected. If you've got 30 smart bulbs, a handful of sensors, and all your personal devices on one router, you might be hitting a hardware wall. A dedicated access point or mesh system for IoT devices can solve this.</p>
-  <p>These fixes take maybe fifteen minutes total, and they genuinely solve the problem. I haven't had a single smart device disconnect since I set up a dedicated IoT SSID and reserved addresses for everything.</p>
+  <p>Use Ethernet for anything that sits in one place and needs consistent performance: your gaming console, your desktop PC, your smart TV, your NAS. These devices don't move, and a one-time cable run gives you permanently better performance.</p>
+  <p>Use Wi-Fi for anything that moves or doesn't need rock-solid performance: your phone (obviously), your laptop when you're on the couch, your tablet, your smart speaker. The convenience of wireless massively outweighs the marginal performance benefit of a cable for these devices.</p>
+  <p>And if you can't run cables because you're renting or your router is in the wrong room? Look into powerline adapters or MoCA adapters. They're not as good as direct Ethernet, but they're significantly better than Wi-Fi for stationary devices, and they use your existing electrical or coax wiring. No drilling, no cable stapling, no landlord complaints.</p>
 </article>
 
 <div class="article-footer">
-  <button class="like-btn" data-post-id="post-4">
+  <button class="like-btn" data-post-id="post-8">
     <span class="heart">♡</span> <span class="like-count">–</span> likes
   </button>
   <a href="articles.html" class="link-accent" style="display:flex;align-items:center;gap:.3rem">

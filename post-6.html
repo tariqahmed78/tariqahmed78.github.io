@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Happens When You Run a Speed Test (Step by Step) | TR Tech Media</title>
+<meta name="description" content="You click 'Go' and wait for three numbers. But what actually happens between your phone and that server halfway across the country?">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap">
+    <a class="wordmark" href="index.html"><span class="mark">TR</span><span class="name">TR Tech Media</span></a>
+    <div class="nav-right">
+      <div class="nav-links" id="nav-links">
+        <a href="index.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <a href="articles.html" class="active"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+        <a href="products.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+        <a href="about.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+        <a href="contact.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<header class="article-header wrap">
+  <span class="tag">
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    Connectivity
+  </span>
+  <h1>What Happens When You Run a Speed Test (Step by Step)</h1>
+  <div class="article-meta">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span>7 min read</span>
+    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Published Jul 2026</span>
+  </div>
+</header>
+
+<article class="article-body reveal">
+  <p>You've probably run a speed test hundreds of times. Open a site, press the big "Go" button, stare at a spinner for twenty seconds, and get three numbers you immediately screenshot to either complain about or brag about. But have you ever stopped to wonder what's actually happening during those twenty seconds? Because there's quite a bit going on, and understanding it will change how you read the results.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Step 1: Finding a server
+  </h2>
+  <p>Before any data starts flying around, the speed test tool needs to pick a test server. Most services — Speedtest by Ookla, Fast.com, Cloudflare's test — maintain a network of servers scattered across the globe. The tool pings a handful of nearby candidates and picks the one that responds quickest. This is important because the server you test against dramatically affects your results. Testing against a server in your city? You'll usually get great numbers. Testing against one on a different continent? Not so much, and that's not your ISP's fault.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    Step 2: The ping test
+  </h2>
+  <p>First up is latency, usually shown as "ping" and measured in milliseconds. The tool sends a tiny packet to the server and measures how long it takes to get a reply. It does this several times and typically reports the lowest value. Think of it as reaction time — it doesn't tell you how fast data can move, just how quickly the connection responds. If you're browsing the web or watching videos, ping barely matters. But if you're gaming online or on a video call, even 20ms of extra latency can feel laggy.</p>
+  <p>What most people don't realize is that ping can swing wildly depending on when you test. Run a speed test at 3am and you'll see beautifully low ping. Do it at 7pm when the entire neighborhood is streaming Netflix, and that number climbs. The connection itself hasn't changed — the traffic load has.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="7 17 17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+    Step 3: Download speed
+  </h2>
+  <p>This is the number everyone cares about. The tool asks the server to send a large chunk of data — usually several hundred megabytes — and measures how fast it arrives. But it doesn't just open one connection and measure the throughput. It opens multiple parallel TCP connections (usually 4 to 8) and adds up the bandwidth across all of them. Why? Because a single connection can be bottlenecked by things that have nothing to do with your actual internet speed, like TCP window sizes or packet loss on one particular route. Multiple connections paint a more accurate picture of what your link can really do.</p>
+  <p>The test ramps up gradually, too. It starts with a smaller transfer to warm up the connection (yes, TCP connections literally have a "slow start" phase built into the protocol), then opens the floodgates. If the test is too short, you'll measure the slow-start phase and get an artificially low number. If it runs too long, you're wasting time and bandwidth. Most tests find the sweet spot at about 10 to 15 seconds of peak throughput.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="17 7 7 17"/><polyline points="17 17 7 17 7 7"/></svg>
+    Step 4: Upload speed
+  </h2>
+  <p>Same concept in reverse — your device sends data to the server. For most home connections, upload speed is significantly lower than download speed because ISPs allocate bandwidth asymmetrically. They assume you consume more data than you produce, which was true ten years ago but is increasingly inaccurate in the age of video calls, cloud backups, and TikTok uploads.</p>
+  <p>One quirk here: your upload test can be affected by your download test if the tool runs them sequentially without a cooldown. The network buffers in your router might still be draining from the download phase, creating temporary congestion that makes your upload look worse than it really is. Better speed test tools add a brief pause between phases for exactly this reason.</p>
+
+  <h2>
+    <svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    Why your results are probably wrong
+  </h2>
+  <p>Here's the uncomfortable truth: speed tests are snapshots, not diagnoses. You're measuring one path, to one server, at one moment in time. Your actual browsing experience involves dozens of servers, different routes, varying levels of congestion, and your own device's processing overhead. Running a speed test over Wi-Fi? You're measuring your Wi-Fi link, not your internet speed. Running it while your kid is downloading a game on the PS5? You're splitting bandwidth and the number is meaningless.</p>
+  <p>If you want a number you can actually hold your ISP accountable for, test over a wired Ethernet connection, with nothing else using the network, to at least three different servers, at different times of day. Then average the results. Anything less is just a vibe check.</p>
+</article>
+
+<div class="article-footer">
+  <button class="like-btn" data-post-id="post-6">
+    <span class="heart">♡</span> <span class="like-count">–</span> likes
+  </button>
+  <a href="articles.html" class="link-accent" style="display:flex;align-items:center;gap:.3rem">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to all articles
+  </a>
+</div>
+
+<hr class="gradient-divider">
+
+<footer class="site-footer wrap">
+  <div class="footer-row">
+    <div class="copyright"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>© 2026 TR Tech Media. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="articles.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+      <a href="products.html"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+      <a href="about.html"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+      <a href="contact.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="likes.js"></script>
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
