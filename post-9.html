@@ -168,10 +168,7 @@
           
           try {
             // PROXY ENDPOINT
-            // IMPORTANT: Since Github Pages is a static host and cannot bypass BBISE's Anti-Forgery and CORS restrictions,
-            // we must use a backend proxy. You will need to deploy the provided bbise-proxy-worker.js code to Cloudflare Workers
-            // and replace this URL with your actual worker URL.
-            const proxyUrl = "https://bbise-proxy.YOUR_USERNAME.workers.dev"; 
+            const proxyUrl = "https://bbise-proxy.madebyt786.workers.dev/"; 
             
             const payload = {
               RollNo: document.getElementById('rollNo').value,
