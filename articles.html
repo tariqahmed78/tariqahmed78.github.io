@@ -49,8 +49,16 @@
 </header>
 
 <section class="section wrap">
-  <div class="article-grid">
-    <a href="post-10.html" class="article-card reveal" style="border: 1px solid var(--accent); background: rgba(37,99,235,0.03);">
+  <div class="category-filters" id="category-filters">
+    <button class="cat-btn active" data-filter="all">All</button>
+    <button class="cat-btn" data-filter="samsung">Samsung</button>
+    <button class="cat-btn" data-filter="education">Education &amp; News</button>
+    <button class="cat-btn" data-filter="networking">Networking</button>
+    <button class="cat-btn" data-filter="connectivity">Connectivity</button>
+    <button class="cat-btn" data-filter="smart-home">Smart Home</button>
+  </div>
+  <div class="article-grid" id="filterable-grid">
+    <a href="post-10.html" class="article-card reveal" data-category="samsung" style="border: 1px solid var(--accent); background: rgba(37,99,235,0.03);">
       <div class="card-icon" style="background:var(--accent);color:white">
         <svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
       </div>
@@ -64,11 +72,11 @@
         <span>Aug 2026</span>
       </div>
     </a>
-    <a href="post-9.html" class="article-card reveal" style="border: 1px solid var(--accent); background: rgba(37,99,235,0.03);">
+    <a href="post-9.html" class="article-card reveal" data-category="education" style="border: 1px solid var(--accent); background: rgba(37,99,235,0.03);">
       <div class="card-icon" style="background:var(--accent);color:white">
         <svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       </div>
-      <span class="tag">Education & News</span>
+      <span class="tag">Education &amp; News</span>
       <h3>Balochistan Government Announces 2026 HSSC Results</h3>
       <p>The wait is over. Here is the official secure portal to check your HSSC Annual / 2nd Annual Results instantly.</p>
       <div class="article-meta">
@@ -78,7 +86,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-1.html" class="article-card reveal">
+    <a href="post-1.html" class="article-card reveal" data-category="networking">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
       </div>
@@ -92,7 +100,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-2.html" class="article-card reveal">
+    <a href="post-2.html" class="article-card reveal" data-category="networking">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
       </div>
@@ -106,7 +114,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-3.html" class="article-card reveal">
+    <a href="post-3.html" class="article-card reveal" data-category="connectivity">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       </div>
@@ -120,7 +128,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-4.html" class="article-card reveal">
+    <a href="post-4.html" class="article-card reveal" data-category="smart-home">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
       </div>
@@ -134,7 +142,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-5.html" class="article-card reveal">
+    <a href="post-5.html" class="article-card reveal" data-category="networking">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
       </div>
@@ -148,7 +156,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-6.html" class="article-card reveal">
+    <a href="post-6.html" class="article-card reveal" data-category="connectivity">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       </div>
@@ -162,7 +170,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-7.html" class="article-card reveal">
+    <a href="post-7.html" class="article-card reveal" data-category="networking">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
       </div>
@@ -176,7 +184,7 @@
         <span>Jul 2026</span>
       </div>
     </a>
-    <a href="post-8.html" class="article-card reveal">
+    <a href="post-8.html" class="article-card reveal" data-category="networking">
       <div class="card-icon">
         <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
       </div>
@@ -229,6 +237,30 @@
   document.getElementById('nav-toggle').addEventListener('click', function () {
     document.getElementById('nav-links').classList.toggle('open');
   });
+
+  // Category filtering
+  (function() {
+    var btns = document.querySelectorAll('.cat-btn');
+    var cards = document.querySelectorAll('#filterable-grid .article-card');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        var filter = btn.getAttribute('data-filter');
+        cards.forEach(function(card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+            card.classList.add('reveal', 'visible');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
 </script>
+<script src="cookie-consent.js"></script>
 </body>
 </html>
