@@ -2,7 +2,7 @@
   // ⚠️ SETUP REQUIRED: replace this with your own Worker URL after you
   // deploy worker.js to Cloudflare (see the setup steps at the top of
   // that file). Until you do, like buttons will show an error state.
-  var WORKER_URL = 'https://REPLACE-ME.workers.dev';
+  var WORKER_URL = 'https://trtech-likes.madebyt786.workers.dev';
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.like-btn').forEach(function (btn) {
