@@ -10,7 +10,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Privacy Policy | Fiber Router Manager</title>
-<meta name="description" content="How Fiber Router Manager collects, uses, and protects your information.">
+<meta name="description" content="Official Privacy Policy for Fiber Router Manager (com.tariqinvents.routerapp). Explains on-device local router processing, permissions, and security.">
+<link rel="canonical" href="https://trtechmedia.com/privacy-policy.html">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="style.css">
@@ -42,94 +43,118 @@
 
 <main class="legal">
   <h1>App Privacy Policy</h1>
-  <p class="updated mono">LAST UPDATED — MAY 29, 2024</p>
+  <p class="updated mono">LAST UPDATED — OCTOBER 4, 2026</p>
 
-  <p style="margin-top:1.4rem;">This policy describes how the <strong>Fiber Router Manager Android app</strong> ("we", "our", "us") collects, uses, and protects your information. The app helps you manage your home network, run speed tests, and monitor connected devices. Looking for the privacy policy for <strong>this website</strong> instead? <a href="website-privacy-policy.html">See it here</a>.</p>
+  <p style="margin-top:1.4rem;">This Privacy Policy describes how the mobile application <strong>Fiber Router Manager</strong> (Package Name: <code>com.tariqinvents.routerapp</code>), published by <strong>TR Tech Invents</strong> ("we", "our", "us") on the Google Play Store, handles network and device information[cite: 1]. This document is hosted at <a href="https://trtechmedia.com/privacy-policy.html">https://trtechmedia.com/privacy-policy.html</a>. Looking for the privacy policy for <strong>this website</strong> instead? <a href="website-privacy-policy.html">See it here</a>.</p>
+
+  <div style="background: rgba(0, 212, 255, 0.08); border-left: 4px solid #00D4FF; padding: 14px 18px; margin: 1.5rem 0; border-radius: 4px;">
+    <strong>Notice Regarding Accounts &amp; User Profiles:</strong> Fiber Router Manager functions strictly as a direct hardware management utility. <strong>The App does not feature account registration, does not create or manage user profiles, and does not collect or store user accounts or personal profiles.</strong>
+  </div>
 
   <section>
-    <h2><span class="num">01</span>Information we collect</h2>
+    <h2><span class="num">01</span>Information We Access and Handle</h2>
 
-    <h3>Network &amp; router data <span class="inline-tag local">LOCAL</span></h3>
-    <p>To provide core features like universal router scanning and specific management for Huawei and China Mobile routers, the app accesses:</p>
+    <h3>Local Network &amp; Router Data <span class="inline-tag local">LOCAL &bull; EPHEMERAL</span></h3>
+    <p>To inspect and manage your local fiber router hardware (including Huawei ONT, ZTE/China Mobile, and Realtek Boa models) and discover connected clients, the App inspects[cite: 2, 7]:</p>
     <ul>
-      <li><strong>Local network information:</strong> MAC addresses, IP addresses, and hostnames of devices connected to your network.</li>
-      <li><strong>Router configuration:</strong> Wi-Fi SSIDs, passwords, and security settings — accessed only when you choose to view or edit them.</li>
-      <li><strong>Traffic statistics:</strong> real-time and cumulative upload/download data usage.</li>
-      <li><strong>Gateway data:</strong> your local default gateway, used to reach your router's admin console.</li>
+      <li><strong>Gateway Addresses:</strong> Local default gateway IPs (such as <code>192.168.100.1</code> or <code>192.168.1.1</code>) used to reach your router's administration interface over your local Wi-Fi[cite: 2].</li>
+      <li><strong>Connected Device Endpoints:</strong> Local IP addresses, MAC addresses, connection interface tags, and hostnames of devices connected to your LAN[cite: 2].</li>
+      <li><strong>Wireless Configurations:</strong> Wi-Fi Network Names (SSID), BSSIDs, frequency bands (2.4 GHz / 5 GHz), and Wi-Fi channels[cite: 2].</li>
+      <li><strong>Optical &amp; Hardware Diagnostics:</strong> Optical Rx/Tx power levels (dBm), PON link states, and port link speeds[cite: 5, 7].</li>
+    </ul>
+    <p><strong>Ephemeral Guarantee:</strong> All local network and router communication is processed ephemerally on-device inside volatile RAM. It is never logged on remote servers, never monetized, and never leaves your local area network[cite: 2].</p>
+
+    <h3>Router Administration Credentials <span class="inline-tag local">LOCAL &bull; ENCRYPTED</span></h3>
+    <p>The administrative username and password you input to authenticate against your local router interface are used solely to execute authorized administrative commands (e.g., changing Wi-Fi credentials, viewing optical levels, or applying MAC filtering rules)[cite: 2].</p>
+    <p>Credentials are stored <strong>exclusively on your physical device</strong> within Android's hardware-backed <code>EncryptedSharedPreferences</code> using AES-256 GCM encryption. Your credentials are never uploaded to remote cloud databases[cite: 2].</p>
+
+    <h3>Diagnostics &amp; Stability Data <span class="inline-tag">ANONYMOUS TELEMETRY</span></h3>
+    <p>To ensure application performance and identify firmware-specific bugs, the App uses Google Firebase:</p>
+    <ul>
+      <li><strong>Firebase Crashlytics:</strong> Anonymous crash stack traces and technical device diagnostics.</li>
+      <li><strong>Firebase Analytics:</strong> Aggregated, non-personally identifiable app interaction metrics to guide technical optimizations.</li>
+      <li><strong>Firebase Remote Config:</strong> Basic configuration parameters for remote version checks and maintenance notices.</li>
     </ul>
 
-    <h3>User-provided information <span class="inline-tag">CLOUD SYNC</span></h3>
-    <p>To keep your setup intact across app reinstalls:</p>
-    <ul>
-      <li><strong>Custom device names:</strong> if you rename a device, we store a hash of its MAC address alongside your custom name in Google Firebase Firestore.</li>
-      <li><strong>App settings:</strong> theme preference and saved router IP addresses are stored locally and may be backed up to your cloud account.</li>
-    </ul>
-
-    <h3>Diagnostic &amp; performance data <span class="inline-tag">CLOUD SYNC</span></h3>
-    <p>We use Google Firebase to keep the app stable:</p>
-    <ul>
-      <li><strong>Firebase Analytics:</strong> anonymous usage data — feature use, button taps — to guide improvements.</li>
-      <li><strong>Firebase Crashlytics:</strong> technical logs collected when the app crashes, to help us fix bugs.</li>
-      <li><strong>Firebase Remote Config:</strong> basic device info used to manage app versions and maintenance states.</li>
-      <li><strong>Firebase Cloud Messaging:</strong> a device token, used to deliver network alerts.</li>
-    </ul>
-
-    <h3>Speed test data <span class="inline-tag">NETWORK</span></h3>
-    <p>Running a speed test connects the app to third-party servers such as Cloudflare or OVH to measure throughput and latency. No personal information is sent to these servers.</p>
+    <h3>Advertising &amp; Mobile Identifiers <span class="inline-tag">ADVERTISING</span></h3>
+    <p>The App displays advertisements via Google AdMob[cite: 1, 2]. AdMob may process the Google Advertising ID (<code>AD_ID</code>) and coarse location parameters to serve non-intrusive ads and manage privacy preferences through Google's User Messaging Platform (UMP).</p>
   </section>
 
   <section>
-    <h2><span class="num">02</span>Permissions</h2>
+    <h2><span class="num">02</span>Permissions &amp; System Disclosures</h2>
     <ul>
-      <li><strong>Location (approximate/precise):</strong> required by Android to scan Wi-Fi and discover local network devices. We do not track your physical location.</li>
-      <li><strong>Nearby devices:</strong> required on newer Android versions to find and connect to your router hardware.</li>
-      <li><strong>Notifications:</strong> used to alert you about network status or app updates.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2><span class="num">03</span>How we use your information</h2>
-    <ul>
-      <li>To provide universal network scanning and router controls.</li>
-      <li>To sync your custom device names and settings across your devices.</li>
-      <li>To measure network performance through speed tests.</li>
-      <li>To send important updates about app maintenance or critical security fixes.</li>
+      <li><strong>Location (<code>ACCESS_FINE_LOCATION</code>, <code>ACCESS_COARSE_LOCATION</code>):</strong> Required by the Android OS to invoke system Wi-Fi scanning APIs and retrieve Wi-Fi SSIDs/BSSIDs. <strong>Fiber Router Manager does not track, record, log, or transmit your physical GPS location[cite: 1, 2].</strong></li>
+      <li><strong>Nearby Wi-Fi Devices (<code>NEARBY_WIFI_DEVICES</code>):</strong> Required on Android 13+ to scan and interface with local networking equipment without accessing location data.</li>
+      <li><strong>Notifications (<code>POST_NOTIFICATIONS</code>):</strong> Used to deliver optional local network monitoring alerts and service notices.</li>
     </ul>
   </section>
 
   <section>
-    <h2><span class="num">04</span>Data sharing &amp; disclosure</h2>
-    <p>We do not sell, rent, or trade your personal data. Data is shared only with the service providers — Google Firebase — needed to run the app's infrastructure and analytics. These providers are bound by their own privacy standards.</p>
-  </section>
-
-  <section>
-    <h2><span class="num">05</span>Data retention &amp; deletion</h2>
+    <h2><span class="num">03</span>How We Use Information</h2>
     <ul>
-      <li><strong>Local router data:</strong> statistics and temporary logs live on your device and clear when you uninstall the app.</li>
-      <li><strong>Cloud data:</strong> custom device names and notification tokens are stored in Firebase. You can request deletion of your synced data at any time — see contact details below.</li>
+      <li>To interface directly with your local router gateway for Wi-Fi management and diagnostic readings[cite: 2].</li>
+      <li>To detect connected devices on your LAN and execute one-tap MAC filter block/unblock actions[cite: 2].</li>
+      <li>To conduct localized network throughput and latency tests.</li>
+      <li>To detect software errors and maintain compatibility across diverse Android device configurations.</li>
     </ul>
   </section>
 
   <section>
-    <h2><span class="num">06</span>Security</h2>
-    <p>We rely on Google Firebase's industry-standard security measures to protect your data. All communication between the app and the cloud is encrypted in transit.</p>
+    <h2><span class="num">04</span>Third-Party Service Providers</h2>
+    <p>We work with trusted SDKs that process technical information according to their independent privacy standards:</p>
+    <ul>
+      <li><strong>Google Play Services:</strong> Core Android system integration &bull; <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+      <li><strong>Google Firebase (Crashlytics, Analytics, Remote Config):</strong> Diagnostics &amp; version checks &bull; <a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener">Firebase Terms</a></li>
+      <li><strong>Google AdMob &amp; UMP SDK:</strong> In-app advertising and privacy consent &bull; <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">AdMob Terms</a>[cite: 2]</li>
+      <li><strong>Square, Inc. (OkHttp):</strong> Secure local HTTP/HTTPS socket networking client &bull; <a href="https://squareup.com/us/en/legal/general/privacy" target="_blank" rel="noopener">Square Privacy</a></li>
+    </ul>
   </section>
 
   <section>
-    <h2><span class="num">07</span>Children's privacy</h2>
-    <p>Fiber Router Manager is not intended for children under 13. We do not knowingly collect information from children.</p>
+    <h2><span class="num">05</span>Data Retention &amp; Erasure</h2>
+    <ul>
+      <li><strong>No Server-Side Accounts:</strong> Because the App does not maintain user accounts or profiles, we do not store personal account databases.</li>
+      <li><strong>Device Storage Purge:</strong> All locally cached router credentials and settings can be erased permanently at any time by clearing the App's storage via <em>Android Settings &gt; Apps &gt; Fiber Router Manager &gt; Storage &gt; Clear Data</em>, or by uninstalling the application[cite: 1, 2].</li>
+      <li><strong>Crash &amp; Diagnostic Logs:</strong> Anonymous telemetry stored within Google Firebase is automatically purged on a rolling 14-month retention cycle.</li>
+    </ul>
   </section>
 
   <section>
-    <h2><span class="num">08</span>Changes to this policy</h2>
-    <p>We may update this policy from time to time. Any significant change will be reflected in the "Last updated" date at the top of this page.</p>
+    <h2><span class="num">06</span>Security Safeguards</h2>
+    <p>We implement strict cryptographic protections to safeguard your hardware control channel:</p>
+    <ul>
+      <li>Local router credentials are encrypted using Android Keystore-backed AES-256 GCM storage (<code>EncryptedSharedPreferences</code>).</li>
+      <li>External network requests to Google Firebase and AdMob are strictly enforced over Transport Layer Security (TLS/HTTPS).</li>
+      <li>Router management calls are isolated to your local area network subnet[cite: 2].</li>
+    </ul>
   </section>
 
   <section>
-    <h2><span class="num">09</span>Contact us</h2>
-    <p>Questions or data deletion requests can go straight to:</p>
+    <h2><span class="num">07</span>Global Privacy Rights (GDPR, CCPA/CPRA, LGPD)</h2>
+    <p>Under international privacy directives:</p>
+    <ul>
+      <li><strong>No Sale of Data:</strong> We do not sell, rent, or trade your personal information for monetary or valuable consideration.</li>
+      <li><strong>Consent Controls:</strong> You can manage or revoke advertising personalization at any time through system settings or the in-app consent menu.</li>
+      <li><strong>Right to Know &amp; Delete:</strong> Users can confirm that no personal profile records are held on our systems and purge all device-stored data via Android settings.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span>Children's Privacy (Google Play Families Policy)</h2>
+    <p>Fiber Router Manager is designed for network administrators and general audiences managing physical fiber routing hardware[cite: 1, 2]. The App is not directed to children under 13 years of age (or under 16 in the EEA/UK).</p>
+    <p>In accordance with the Google Play Families Policy, our declared target audience is <strong>18 years of age and older</strong>[cite: 13]. We do not knowingly collect personal information from minors. If you believe a minor has provided information through the App, contact us for prompt removal.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">09</span>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy periodically to reflect app updates or regulatory modifications. Changes will be posted to this page with an updated "LAST UPDATED" timestamp.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">10</span>Contact Us</h2>
+    <p>For questions or privacy inquiries regarding Fiber Router Manager, please reach out to[cite: 1]:</p>
     <div class="contact-box">
-      <span>Fiber Router Manager support</span>
+      <span>Fiber Router Manager Support &bull; TR Tech Invents</span>
       <a href="mailto:tariqahmed7@proton.me">tariqahmed7@proton.me</a>
     </div>
   </section>
