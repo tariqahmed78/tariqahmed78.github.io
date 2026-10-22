@@ -1,6 +1,26 @@
 (function () {
   var root = document.documentElement;
   var KEY = 'trtm-theme';
+  var GA_ID = 'G-6WJND9M7H9';
+
+  // Google Analytics 4 setup
+  if (window && !window.dataLayer) {
+    window.dataLayer = window.dataLayer || [];
+  }
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+
+  if (!window.__trtmGtagLoaded) {
+    window.__trtmGtagLoaded = true;
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(gtagScript);
+
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
 
   function apply(dark) {
     root.setAttribute('data-theme', dark ? 'dark' : 'light');
