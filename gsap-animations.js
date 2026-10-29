@@ -35,6 +35,9 @@
 
   waitForGSAP(function () {
     gsap.registerPlugin(ScrollTrigger);
+    if (typeof ScrollTrigger.config === 'function') {
+      ScrollTrigger.config({ ignoreMobileResize: true });
+    }
 
     // Immediately make all .reveal elements visible (GSAP handles animation now)
     var reveals = document.querySelectorAll('.reveal');
@@ -70,21 +73,22 @@
     // =========================================
     // 2. Header / Page Head Text Reveals
     // =========================================
+    var isMobile = window.innerWidth < 768;
     var headings = document.querySelectorAll(
       '.page-head h1, .article-header h1, .app-hero-text h1, .hero-tagline'
     );
 
     headings.forEach(function (heading) {
-      // Don't split if it contains SVG or complex HTML
-      if (heading.querySelector('svg')) {
+      // On mobile or if SVG present, animate cleanly without splitting text
+      if (isMobile || heading.querySelector('svg')) {
         gsap.from(heading, {
-          y: 30,
+          y: 20,
           opacity: 0,
-          duration: 0.8,
-          ease: 'power3.out',
+          duration: 0.6,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: heading,
-            start: 'top 92%',
+            start: 'top 94%',
             toggleActions: 'play none none none'
           }
         });

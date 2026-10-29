@@ -1,7 +1,7 @@
 /**
  * three-bg.js — Persistent Three.js Background Canvas
  * Floating wireframe geometry, interactive particle field, dynamic lighting.
- * Reacts to mouse movement and adapts to dark/light theme.
+ * Fully optimized for mobile: battery-safe DPR, touch deflection, and tab sleep.
  */
 (function () {
   'use strict';
@@ -15,7 +15,7 @@
     var t = setInterval(function () {
       if (typeof THREE !== 'undefined') { clearInterval(t); cb(); }
     }, 50);
-    setTimeout(function () { clearInterval(t); }, 5000); // give up after 5s
+    setTimeout(function () { clearInterval(t); }, 5000);
   }
 
   waitForThree(function () { init3D(); });
@@ -24,18 +24,19 @@
     var canvas = document.getElementById('three-canvas');
     if (!canvas) return;
 
-    // --- Renderer ---
-    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+    // --- Detect mobile / touch environment ---
+    var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches;
+    var isMobile = isTouch || window.innerWidth < 768;
+
+    // --- Renderer: 1.0 DPR on mobile saves enormous GPU fillrate & battery ---
+    var dpr = isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.5);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
     renderer.setPixelRatio(dpr);
     renderer.setClearColor(0x000000, 0);
 
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 30;
-
-    // --- Detect mobile ---
-    var isMobile = window.innerWidth < 768;
 
     // --- Theme detection ---
     function isDark() {
@@ -50,7 +51,6 @@
       cyan:     0x3ED2FF
     };
 
-    // Light mode colors — more subtle blues
     var COLORS_LIGHT = {
       skyBlue:  0x0284C7,
       blue:     0x1D4ED8,
@@ -62,19 +62,19 @@
       return isDark() ? COLORS : COLORS_LIGHT;
     }
 
-    // --- Floating Geometry ---
+    // --- Floating Geometry (tuned down on mobile) ---
     var geometries = [];
     var geoGroup = new THREE.Group();
     scene.add(geoGroup);
 
-    var geoCount = isMobile ? 10 : 22;
+    var geoCount = isMobile ? 6 : 22;
     var geoTypes = ['icosa', 'octa', 'torus', 'dodeca'];
     var colorKeys = Object.keys(COLORS);
 
     for (var i = 0; i < geoCount; i++) {
       var type = geoTypes[i % geoTypes.length];
       var geo;
-      var scale = 0.5 + Math.random() * 1.5;
+      var scale = isMobile ? (0.4 + Math.random() * 1.0) : (0.5 + Math.random() * 1.5);
 
       switch (type) {
         case 'icosa':
@@ -84,7 +84,7 @@
           geo = new THREE.OctahedronGeometry(scale, 0);
           break;
         case 'torus':
-          geo = new THREE.TorusKnotGeometry(scale * 0.6, scale * 0.15, 32, 6);
+          geo = new THREE.TorusKnotGeometry(scale * 0.6, scale * 0.15, isMobile ? 16 : 32, 4);
           break;
         case 'dodeca':
           geo = new THREE.DodecahedronGeometry(scale, 0);
@@ -96,16 +96,15 @@
         color: getColors()[colorKey],
         wireframe: true,
         transparent: true,
-        opacity: isDark() ? 0.10 : 0.04
+        opacity: isDark() ? (isMobile ? 0.08 : 0.10) : 0.03
       });
 
       var mesh = new THREE.Mesh(geo, mat);
 
-      // Random position in a wide area
       mesh.position.set(
-        (Math.random() - 0.5) * 60,
-        (Math.random() - 0.5) * 40,
-        (Math.random() - 0.5) * 30 - 10
+        (Math.random() - 0.5) * (isMobile ? 35 : 60),
+        (Math.random() - 0.5) * (isMobile ? 30 : 40),
+        (Math.random() - 0.5) * 25 - 8
       );
 
       mesh.rotation.set(
@@ -116,13 +115,13 @@
 
       mesh.userData = {
         rotSpeed: {
-          x: (Math.random() - 0.5) * 0.004,
-          y: (Math.random() - 0.5) * 0.004,
+          x: (Math.random() - 0.5) * 0.003,
+          y: (Math.random() - 0.5) * 0.003,
           z: (Math.random() - 0.5) * 0.002
         },
         drift: {
-          x: (Math.random() - 0.5) * 0.006,
-          y: (Math.random() - 0.5) * 0.004
+          x: (Math.random() - 0.5) * 0.004,
+          y: (Math.random() - 0.5) * 0.003
         },
         colorKey: colorKey,
         originalPos: mesh.position.clone()
@@ -132,20 +131,20 @@
       geometries.push(mesh);
     }
 
-    // --- Particle Field ---
-    var particleCount = isMobile ? 150 : 400;
+    // --- Particle Field (60 on mobile vs 400 on desktop) ---
+    var particleCount = isMobile ? 60 : 400;
     var particleGeo = new THREE.BufferGeometry();
     var positions = new Float32Array(particleCount * 3);
     var velocities = [];
 
     for (var i = 0; i < particleCount; i++) {
-      positions[i * 3]     = (Math.random() - 0.5) * 80;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 60;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 40 - 5;
+      positions[i * 3]     = (Math.random() - 0.5) * (isMobile ? 40 : 80);
+      positions[i * 3 + 1] = (Math.random() - 0.5) * (isMobile ? 40 : 60);
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 30 - 5;
       velocities.push({
-        x: (Math.random() - 0.5) * 0.012,
-        y: (Math.random() - 0.5) * 0.01,
-        z: (Math.random() - 0.5) * 0.006
+        x: (Math.random() - 0.5) * 0.01,
+        y: (Math.random() - 0.5) * 0.008,
+        z: (Math.random() - 0.5) * 0.005
       });
     }
 
@@ -153,9 +152,9 @@
 
     var particleMat = new THREE.PointsMaterial({
       color: isDark() ? COLORS.cyan : COLORS_LIGHT.skyBlue,
-      size: 0.07,
+      size: isMobile ? 0.09 : 0.07,
       transparent: true,
-      opacity: isDark() ? 0.4 : 0.18,
+      opacity: isDark() ? (isMobile ? 0.35 : 0.4) : 0.16,
       sizeAttenuation: true,
       blending: THREE.AdditiveBlending,
       depthWrite: false
@@ -164,7 +163,7 @@
     var particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
 
-    // --- Dynamic Lights (visual only for potential future MeshStandard use) ---
+    // --- Dynamic Orbiting Lights ---
     var light1 = new THREE.PointLight(COLORS.skyBlue, isDark() ? 0.8 : 0.2, 50);
     light1.position.set(10, 10, 10);
     scene.add(light1);
@@ -173,29 +172,47 @@
     light2.position.set(-10, -10, 5);
     scene.add(light2);
 
-    // --- Mouse tracking ---
-    var mouse = { x: 0, y: 0, active: false };
-    var mouseNDC = { x: 0, y: 0 };
+    // --- Pointer & Touch Tracking ---
+    var pointer = { x: 0, y: 0, active: false };
+    var pointerNDC = { x: 0, y: 0 };
 
-    document.addEventListener('mousemove', function (e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-      mouse.active = true;
-      mouseNDC.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouseNDC.y = -(e.clientY / window.innerHeight) * 2 + 1;
-    });
-
-    document.addEventListener('mouseleave', function () {
-      mouse.active = false;
-    });
-
-    // --- Resize ---
-    function onResize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+    function updatePointer(clientX, clientY) {
+      pointer.x = clientX;
+      pointer.y = clientY;
+      pointer.active = true;
+      pointerNDC.x = (clientX / window.innerWidth) * 2 - 1;
+      pointerNDC.y = -(clientY / window.innerHeight) * 2 + 1;
     }
-    onResize();
+
+    window.addEventListener('mousemove', function (e) {
+      updatePointer(e.clientX, e.clientY);
+    }, { passive: true });
+
+    window.addEventListener('mouseleave', function () {
+      pointer.active = false;
+    });
+
+    // Touch support: swipe gently deflects 3D particles on mobile
+    window.addEventListener('touchmove', function (e) {
+      if (e.touches && e.touches[0]) {
+        updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', function () {
+      pointer.active = false;
+    }, { passive: true });
+
+    // --- Resize handling (debounced) ---
+    var resizeTimer;
+    function onResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }, 100);
+    }
     window.addEventListener('resize', onResize);
 
     // --- Theme observer ---
@@ -203,20 +220,43 @@
       var dark = isDark();
       var cols = getColors();
       geometries.forEach(function (m) {
-        m.material.opacity = dark ? 0.10 : 0.04;
+        m.material.opacity = dark ? (isMobile ? 0.08 : 0.10) : 0.03;
         m.material.color.setHex(cols[m.userData.colorKey]);
       });
-      particleMat.opacity = dark ? 0.4 : 0.18;
+      particleMat.opacity = dark ? (isMobile ? 0.35 : 0.4) : 0.16;
       particleMat.color.setHex(dark ? COLORS.cyan : COLORS_LIGHT.skyBlue);
       light1.intensity = dark ? 0.8 : 0.2;
       light2.intensity = dark ? 0.5 : 0.1;
     });
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
-    // --- Animation Loop ---
+    // --- Visibility / Sleep handling (Save mobile battery when tab is backgrounded) ---
     var clock = new THREE.Clock();
-    var animId;
+    var animId = null;
 
+    function startLoop() {
+      if (!animId) {
+        clock.start();
+        animate();
+      }
+    }
+
+    function stopLoop() {
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stopLoop();
+      } else {
+        startLoop();
+      }
+    });
+
+    // --- Animation Loop ---
     function animate() {
       animId = requestAnimationFrame(animate);
       var t = clock.getElapsedTime();
@@ -228,42 +268,41 @@
         m.rotation.y += m.userData.rotSpeed.y;
         m.rotation.z += m.userData.rotSpeed.z;
 
-        // Gentle floating drift
-        m.position.x = m.userData.originalPos.x + Math.sin(t * 0.25 + i) * 1.5;
-        m.position.y = m.userData.originalPos.y + Math.cos(t * 0.2 + i * 0.7) * 1.2;
+        m.position.x = m.userData.originalPos.x + Math.sin(t * 0.25 + i) * (isMobile ? 0.8 : 1.5);
+        m.position.y = m.userData.originalPos.y + Math.cos(t * 0.2 + i * 0.7) * (isMobile ? 0.6 : 1.2);
 
-        // Mouse influence on geometry rotation
-        if (mouse.active) {
-          m.rotation.y += mouseNDC.x * 0.0015;
-          m.rotation.x += mouseNDC.y * 0.0008;
+        if (pointer.active) {
+          m.rotation.y += pointerNDC.x * 0.001;
+          m.rotation.x += pointerNDC.y * 0.0006;
         }
       }
 
       // Animate particles
       var posArr = particleGeo.attributes.position.array;
+      var boundX = isMobile ? 25 : 40;
+      var boundY = isMobile ? 25 : 30;
+
       for (var i = 0; i < particleCount; i++) {
         var idx = i * 3;
         posArr[idx]     += velocities[i].x;
         posArr[idx + 1] += velocities[i].y;
         posArr[idx + 2] += velocities[i].z;
 
-        // Wrap around bounds
-        if (posArr[idx] > 40) posArr[idx] = -40;
-        if (posArr[idx] < -40) posArr[idx] = 40;
-        if (posArr[idx + 1] > 30) posArr[idx + 1] = -30;
-        if (posArr[idx + 1] < -30) posArr[idx + 1] = 30;
+        if (posArr[idx] > boundX) posArr[idx] = -boundX;
+        if (posArr[idx] < -boundX) posArr[idx] = boundX;
+        if (posArr[idx + 1] > boundY) posArr[idx + 1] = -boundY;
+        if (posArr[idx + 1] < -boundY) posArr[idx + 1] = boundY;
         if (posArr[idx + 2] > 20) posArr[idx + 2] = -20;
         if (posArr[idx + 2] < -20) posArr[idx + 2] = 20;
 
-        // Mouse repulsion on particles
-        if (mouse.active) {
-          var worldX = mouseNDC.x * 25;
-          var worldY = mouseNDC.y * 18;
+        if (pointer.active) {
+          var worldX = pointerNDC.x * (isMobile ? 18 : 25);
+          var worldY = pointerNDC.y * (isMobile ? 14 : 18);
           var dx = posArr[idx] - worldX;
           var dy = posArr[idx + 1] - worldY;
           var dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 6) {
-            var force = (6 - dist) / 6 * 0.06;
+            var force = (6 - dist) / 6 * 0.05;
             posArr[idx] += (dx / dist) * force;
             posArr[idx + 1] += (dy / dist) * force;
           }
@@ -274,29 +313,25 @@
       // Orbit lights gently
       light1.position.x = Math.cos(t * 0.2) * 15;
       light1.position.y = Math.sin(t * 0.3) * 10;
-      light1.position.z = Math.sin(t * 0.15) * 6 + 10;
 
       light2.position.x = Math.sin(t * 0.18) * 12;
       light2.position.y = Math.cos(t * 0.25) * 8;
-      light2.position.z = Math.cos(t * 0.1) * 5 + 8;
 
-      // Subtle camera sway from mouse
-      if (mouse.active) {
-        camera.position.x += (mouseNDC.x * 1.5 - camera.position.x) * 0.015;
-        camera.position.y += (mouseNDC.y * 1 - camera.position.y) * 0.015;
+      if (pointer.active && !isMobile) {
+        camera.position.x += (pointerNDC.x * 1.5 - camera.position.x) * 0.015;
+        camera.position.y += (pointerNDC.y * 1 - camera.position.y) * 0.015;
       }
       camera.lookAt(scene.position);
 
       renderer.render(scene, camera);
     }
 
-    animate();
+    startLoop();
 
-    // --- Cleanup on page unload ---
+    // --- Cleanup ---
     window.addEventListener('beforeunload', function () {
-      cancelAnimationFrame(animId);
+      stopLoop();
       themeObserver.disconnect();
-
       geometries.forEach(function (m) {
         m.geometry.dispose();
         m.material.dispose();

@@ -35,10 +35,34 @@
   else { apply(true); } // default dark
 
   document.addEventListener('DOMContentLoaded', function () {
+    // Theme toggle
     var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      apply(root.getAttribute('data-theme') === 'light');
-    });
+    if (btn) {
+      btn.addEventListener('click', function () {
+        apply(root.getAttribute('data-theme') === 'light');
+      });
+    }
+
+    // Mobile navigation drawer toggle & auto-close on link/outside click
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('open');
+      });
+      // Close when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+          navLinks.classList.remove('open');
+        }
+      });
+      // Close when clicking any nav link
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navLinks.classList.remove('open');
+        });
+      });
+    }
   });
 })();

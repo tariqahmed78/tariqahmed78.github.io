@@ -7,8 +7,11 @@
   'use strict';
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  // Skip on touch devices — tilt doesn't make sense without a mouse
-  if ('ontouchstart' in window && window.innerWidth < 1024) return;
+  // Skip on touch/mobile devices — tilt doesn't make sense without a precision mouse hover
+  var isTouchOnly = window.matchMedia('(hover: none)').matches || 
+                    ('ontouchstart' in window && window.innerWidth < 1024) || 
+                    (navigator.maxTouchPoints > 0 && window.innerWidth < 1024);
+  if (isTouchOnly) return;
 
   document.addEventListener('DOMContentLoaded', function () {
     // Small delay to let GSAP animations set up first
