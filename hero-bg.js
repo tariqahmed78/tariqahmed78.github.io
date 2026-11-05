@@ -3,7 +3,8 @@
     var canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
-    var W, H, nodes, animId;
+    var W, H, nodes, animId = null;
+    var inView = true;
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) { canvas.style.display = 'none'; return; }
 
@@ -34,6 +35,8 @@
     }
 
     function draw() {
+      animId = null;
+      if (document.hidden || !inView) return;
       ctx.clearRect(0, 0, W, H);
       var LINK = 130;
 
@@ -51,7 +54,7 @@
           var dyM = n.y - mouse.y;
           var distM = Math.sqrt(dxM * dxM + dyM * dyM);
           var MOUSE_LINK = 150;
-          if (distM < MOUSE_LINK) {
+          if (distM > 0 && distM < MOUSE_LINK) {
             var alphaM = (0.35 * (1 - distM / MOUSE_LINK)).toFixed(3);
             ctx.beginPath();
             ctx.moveTo(n.x, n.y);
@@ -91,8 +94,21 @@
       animId = requestAnimationFrame(draw);
     }
 
+    function syncLoop() {
+      if (document.hidden || !inView) {
+        if (animId !== null) cancelAnimationFrame(animId);
+        animId = null;
+      } else if (animId === null) draw();
+    }
+    document.addEventListener('visibilitychange', syncLoop);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        syncLoop();
+      }).observe(canvas.parentElement);
+    }
     init();
-    draw();
+    syncLoop();
 
     window.addEventListener('mousemove', function (e) {
       var rect = canvas.getBoundingClientRect();
@@ -107,7 +123,8 @@
 
     window.addEventListener('resize', function () {
       cancelAnimationFrame(animId);
-      init(); draw();
+      animId = null;
+      init(); syncLoop();
     });
   });
 })();

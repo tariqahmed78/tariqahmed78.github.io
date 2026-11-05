@@ -9,16 +9,8 @@
   // Bail on reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Wait for Three.js to load
-  function waitForThree(cb) {
-    if (typeof THREE !== 'undefined') return cb();
-    var t = setInterval(function () {
-      if (typeof THREE !== 'undefined') { clearInterval(t); cb(); }
-    }, 50);
-    setTimeout(function () { clearInterval(t); }, 5000);
-  }
-
-  waitForThree(function () { init3D(); });
+  if (typeof THREE === 'undefined') return;
+  init3D();
 
   function init3D() {
     var canvas = document.getElementById('three-canvas');
@@ -301,7 +293,7 @@
           var dx = posArr[idx] - worldX;
           var dy = posArr[idx + 1] - worldY;
           var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 6) {
+          if (dist > 0 && dist < 6) {
             var force = (6 - dist) / 6 * 0.05;
             posArr[idx] += (dx / dist) * force;
             posArr[idx + 1] += (dy / dist) * force;

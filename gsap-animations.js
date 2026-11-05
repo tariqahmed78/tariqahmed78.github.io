@@ -9,18 +9,20 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   function waitForGSAP(cb) {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') return cb();
-    var t = setInterval(function () {
-      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        clearInterval(t);
-        cb();
-      }
-    }, 50);
-    setTimeout(function () {
-      clearInterval(t);
-      // If GSAP never loaded, make everything visible
-      showAllContent();
-    }, 5000);
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') cb();
+    else showAllContent();
+  }
+
+  // Never hide content that has already entered the viewport.
+  function entrance(targets, options) {
+    var list = targets && targets.nodeType ? [targets] : Array.from(targets || []);
+    var pending = list.filter(function (el) {
+      var rect = el.getBoundingClientRect();
+      return rect.top >= window.innerHeight;
+    });
+    if (!pending.length) return;
+    options.immediateRender = false;
+    gsap.from(pending, options);
   }
 
   // Failsafe: ensure all content is visible even if GSAP fails to load
@@ -79,9 +81,10 @@
     );
 
     headings.forEach(function (heading) {
+      if (heading.getBoundingClientRect().top < window.innerHeight) return;
       // On mobile or if SVG present, animate cleanly without splitting text
       if (isMobile || heading.querySelector('svg')) {
-        gsap.from(heading, {
+        entrance(heading, {
           y: 20,
           opacity: 0,
           duration: 0.6,
@@ -102,7 +105,7 @@
       }).join(' ');
 
       var wordInners = heading.querySelectorAll('.gsap-word-inner');
-      gsap.from(wordInners, {
+      entrance(wordInners, {
         y: '100%',
         rotateX: -40,
         opacity: 0,
@@ -122,7 +125,7 @@
     // =========================================
     var contactHeading = document.querySelector('.contact-body h1, .contact-card h1');
     if (contactHeading && !contactHeading.querySelector('.gsap-word')) {
-      gsap.from(contactHeading, {
+      entrance(contactHeading, {
         y: 25,
         opacity: 0,
         duration: 0.7,
@@ -136,7 +139,7 @@
     // =========================================
     var eyebrows = document.querySelectorAll('.eyebrow, .section-head');
     eyebrows.forEach(function (el) {
-      gsap.from(el, {
+      entrance(el, {
         x: -20,
         opacity: 0,
         duration: 0.6,
@@ -159,7 +162,7 @@
       );
       if (!cards.length) return;
 
-      gsap.from(cards, {
+      entrance(cards, {
         y: 40,
         opacity: 0,
         duration: 0.65,
@@ -181,7 +184,7 @@
     // =========================================
     var featuredCard = document.querySelector('.featured-card');
     if (featuredCard) {
-      gsap.from(featuredCard, {
+      entrance(featuredCard, {
         y: 50,
         opacity: 0,
         duration: 0.9,
@@ -192,7 +195,7 @@
 
     var sideItems = document.querySelectorAll('.side-item');
     if (sideItems.length) {
-      gsap.from(sideItems, {
+      entrance(sideItems, {
         x: 30,
         opacity: 0,
         duration: 0.7,
@@ -207,7 +210,7 @@
     // =========================================
     var cardIcons = document.querySelectorAll('.card-icon, .feature-icon-box, .stat-icon');
     cardIcons.forEach(function (icon) {
-      gsap.from(icon, {
+      entrance(icon, {
         scale: 0,
         rotation: -10,
         opacity: 0,
@@ -226,7 +229,7 @@
     // =========================================
     var productCards = document.querySelectorAll('.product-card');
     productCards.forEach(function (card, i) {
-      gsap.from(card, {
+      entrance(card, {
         y: 35,
         opacity: 0,
         duration: 0.7,
@@ -245,6 +248,7 @@
     // =========================================
     var statNumbers = document.querySelectorAll('.stat-number');
     statNumbers.forEach(function (num) {
+      if (num.getBoundingClientRect().top < window.innerHeight) return;
       var text = num.textContent.trim();
       var match = text.match(/^(\d+)/);
       if (!match) return;
@@ -275,7 +279,7 @@
     if (articleBody) {
       var bodyElements = articleBody.querySelectorAll('p, h2');
       bodyElements.forEach(function (el) {
-        gsap.from(el, {
+        entrance(el, {
           y: 20,
           opacity: 0,
           duration: 0.6,
@@ -312,7 +316,7 @@
     var footer = document.querySelector('.site-footer');
     if (footer) {
       var footerCols = footer.querySelectorAll('.footer-brand, .footer-col, .footer-bottom');
-      gsap.from(footerCols, {
+      entrance(footerCols, {
         y: 20,
         opacity: 0,
         duration: 0.6,
@@ -331,7 +335,7 @@
     // =========================================
     var contactCard = document.querySelector('.contact-card');
     if (contactCard) {
-      gsap.from(contactCard, {
+      entrance(contactCard, {
         y: 40,
         scale: 0.97,
         opacity: 0,
@@ -343,7 +347,7 @@
       // Also animate contact methods inside
       var contactMethods = contactCard.querySelectorAll('.email-box, .social-link');
       if (contactMethods.length) {
-        gsap.from(contactMethods, {
+        entrance(contactMethods, {
           y: 15,
           opacity: 0,
           duration: 0.5,
@@ -359,7 +363,7 @@
     // =========================================
     var aboutMission = document.querySelector('.about-mission');
     if (aboutMission) {
-      gsap.from(aboutMission, {
+      entrance(aboutMission, {
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -377,7 +381,7 @@
     // =========================================
     var ctaBanner = document.querySelector('.cta-banner');
     if (ctaBanner) {
-      gsap.from(ctaBanner, {
+      entrance(ctaBanner, {
         y: 30,
         opacity: 0,
         duration: 0.7,
@@ -395,7 +399,7 @@
     // =========================================
     var dividers = document.querySelectorAll('.gradient-divider');
     dividers.forEach(function (div) {
-      gsap.from(div, {
+      entrance(div, {
         scaleX: 0,
         duration: 1,
         ease: 'power2.inOut',
@@ -412,7 +416,7 @@
     // =========================================
     var navLinks = document.querySelectorAll('.nav-links a');
     if (navLinks.length) {
-      gsap.from(navLinks, {
+      entrance(navLinks, {
         y: -15,
         opacity: 0,
         duration: 0.4,
@@ -424,7 +428,7 @@
 
     var wordmark = document.querySelector('.site-header .wordmark');
     if (wordmark) {
-      gsap.from(wordmark, {
+      entrance(wordmark, {
         x: -20,
         opacity: 0,
         duration: 0.5,
@@ -438,7 +442,7 @@
     // =========================================
     var likeBtn = document.querySelector('.like-btn');
     if (likeBtn) {
-      gsap.from(likeBtn, {
+      entrance(likeBtn, {
         scale: 0.85,
         opacity: 0,
         duration: 0.4,
@@ -457,7 +461,7 @@
     var aboutBody = document.querySelector('.about-body');
     if (aboutBody) {
       var aboutPs = aboutBody.querySelectorAll('p');
-      gsap.from(aboutPs, {
+      entrance(aboutPs, {
         y: 20,
         opacity: 0,
         duration: 0.6,
@@ -476,7 +480,7 @@
     // =========================================
     var legal = document.querySelector('.legal');
     if (legal) {
-      gsap.from(legal, {
+      entrance(legal, {
         y: 20,
         opacity: 0,
         duration: 0.6,
