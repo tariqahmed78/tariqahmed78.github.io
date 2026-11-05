@@ -1,0 +1,33 @@
+
+.muddi{--m-purple:#bda4ff;--m-panel:var(--bg2);--m-line:var(--border-s);max-width:1120px;margin:auto;padding:0 24px;color:var(--text)}
+[data-theme=light] .muddi{--m-purple:#6840cd}
+.muddi a:not(.btn){text-decoration-thickness:1px;text-underline-offset:4px}
+.muddi .kicker{font:700 .75rem 'Outfit',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--m-purple);display:block;margin-bottom:18px}
+.muddi .hero{padding:76px 0 48px;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:36px}
+.muddi h1{font-size:clamp(2.5rem,5.3vw,4.6rem);line-height:1.06;letter-spacing:-.045em;margin:16px 0 24px;overflow-wrap:anywhere}
+.muddi h1 em{color:var(--m-purple);font-style:normal}
+.muddi .lead{font-size:1.15rem;line-height:1.8;color:var(--text-dim);max-width:58ch}
+.muddi .actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+.muddi .btn{background:linear-gradient(135deg,#7345d9,#5431a9);min-height:48px;text-align:center}
+.muddi .btn-outline{background:var(--surface);color:var(--text)}
+.muddi .art{background:radial-gradient(ellipse at 25% 15%,#d7beff,#9c72df 45%,#322250 100%);border-radius:36px;padding:22px;box-shadow:0 32px 80px #0003;overflow:hidden}
+.muddi .art svg{display:block;width:100%;height:auto}
+.muddi .caption{font-size:.8rem;color:var(--text-dim);margin:12px 4px}
+.muddi .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.muddi .pills span{border:1px solid var(--m-line);border-radius:99px;padding:8px 14px;font-size:.82rem}
+.muddi .band{border-block:1px solid var(--m-line);padding:24px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.muddi .band strong{display:block;font-size:1.15rem}.muddi .band span{color:var(--text-dim);font-size:.88rem}
+.muddi section{padding:48px 0}.muddi h2{font-size:clamp(1.7rem,3vw,2.5rem);margin-bottom:20px;line-height:1.2}
+.muddi .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.muddi .tile{padding:30px;border-radius:24px;background:var(--surface);border:1px solid var(--m-line)}
+.muddi .tile .num{color:var(--m-purple);font-size:.8rem;letter-spacing:.12em;display:block;margin-bottom:16px}
+.muddi h3{font-size:1.4rem;margin-bottom:14px}.muddi p{line-height:1.8;margin-bottom:16px}.muddi .tile p{color:var(--text-dim)}
+.muddi .note{padding:24px 28px;border-left:3px solid var(--m-purple);background:var(--surface);border-radius:0 18px 18px 0;margin:28px 0}
+.muddi .reading{max-width:760px;margin:auto;font-size:1.08rem}.muddi .reading h2{margin-top:44px;font-size:1.8rem}.muddi .reading h3{margin-top:28px;font-size:1.2rem}
+.muddi .reading a{color:var(--m-purple);text-decoration:underline}.muddi ul,.muddi ol{padding-left:24px;margin:16px 0 26px}.muddi li{padding:5px 0;line-height:1.8}
+.muddi .toc{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.muddi .toc a{padding:8px 12px;border:1px solid var(--m-line);border-radius:10px;font-size:.875rem}
+.muddi .table-wrap{overflow-x:auto;margin:24px 0}.muddi table{border-collapse:collapse;width:100%;font-size:.95rem}.muddi th,.muddi td{text-align:left;padding:16px;border-bottom:1px solid var(--m-line);vertical-align:top}.muddi th{color:var(--m-purple)}
+.muddi code{font-size:.85em;overflow-wrap:anywhere}.muddi .closing{padding:36px;border-radius:26px;background:linear-gradient(135deg,#56349d,#34245d);color:#fff;margin:28px 0 60px}.muddi .closing a{color:#eee2ff}
+.muddi-lettermark{display:inline-flex;flex-shrink:0;align-items:center;justify-content:center;width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,#e1d2ff,#7c4bd5);color:#291745;font:bold 38px Georgia,serif}
+.muddi-card{border-color:#9a79d260!important}.muddi-card .tag{color:#c7b1ff}
+[data-theme=light] .muddi-card .tag{color:#6534bb}
+@media(max-width:760px){.muddi{padding:0 18px}.muddi .hero{grid-template-columns:1fr;padding-top:38px;gap:22px}.muddi .tiles{grid-template-columns:1fr}.muddi .band{gap:16px;grid-template-columns:1fr}.muddi .band>div{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}.muddi .tile{padding:24px}.muddi .art{border-radius:24px;padding:12px}.muddi section{padding:30px 0}.muddi .reading{font-size:1rem}.muddi .closing{padding:24px}.muddi .actions .btn{flex:1;justify-content:center}.muddi th,.muddi td{padding:12px}}
