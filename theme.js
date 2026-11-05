@@ -43,26 +43,38 @@
       });
     }
 
-    // Mobile navigation drawer toggle & auto-close on link/outside click
+    // Shared mobile menu controller; some pages still have a legacy inline toggle.
     var navToggle = document.getElementById('nav-toggle');
     var navLinks = document.getElementById('nav-links');
     if (navToggle && navLinks) {
+      function setMenu(open) {
+        navLinks.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      navToggle.setAttribute('aria-controls', navLinks.id);
+      setMenu(false);
       navToggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        navLinks.classList.toggle('open');
-      });
-      // Close when clicking outside
+        // Stop the legacy bubbling listener from reversing the toggle.
+        e.stopImmediatePropagation();
+        setMenu(!navLinks.classList.contains('open'));
+      }, true);
       document.addEventListener('click', function (e) {
-        if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-          navLinks.classList.remove('open');
+        if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) setMenu(false);
+      });
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setMenu(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+          setMenu(false);
+          navToggle.focus();
         }
       });
-      // Close when clicking any nav link
-      navLinks.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          navLinks.classList.remove('open');
-        });
-      });
+      var desktopNav = window.matchMedia('(min-width: 761px)');
+      function resetMenu() { setMenu(false); }
+      if (desktopNav.addEventListener) desktopNav.addEventListener('change', resetMenu);
+      else if (desktopNav.addListener) desktopNav.addListener(resetMenu);
     }
   });
 })();
