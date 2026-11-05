@@ -31,3 +31,10 @@
 .muddi-card{border-color:#9a79d260!important}.muddi-card .tag{color:#c7b1ff}
 [data-theme=light] .muddi-card .tag{color:#6534bb}
 @media(max-width:760px){.muddi{padding:0 18px}.muddi .hero{grid-template-columns:1fr;padding-top:38px;gap:22px}.muddi .tiles{grid-template-columns:1fr}.muddi .band{gap:16px;grid-template-columns:1fr}.muddi .band>div{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}.muddi .tile{padding:24px}.muddi .art{border-radius:24px;padding:12px}.muddi section{padding:30px 0}.muddi .reading{font-size:1rem}.muddi .closing{padding:24px}.muddi .actions .btn{flex:1;justify-content:center}.muddi th,.muddi td{padding:12px}}
+
+/* Owner-supplied Muddi mascot. Preserve the full artwork and its white canvas. */
+.muddi-logo{display:block;width:84px;height:84px;object-fit:contain;border-radius:20px;background:#fff;flex-shrink:0}
+.muddi .hero .muddi-logo{width:100px;height:100px;margin-bottom:20px}
+.article-card.muddi-card .muddi-logo{width:72px;height:72px;margin-bottom:18px}
+.product-card.muddi-card .muddi-logo{width:76px;height:76px;border-radius:20px}
+@media(max-width:480px){.muddi .hero .muddi-logo{width:84px;height:84px}.product-card.muddi-card .muddi-logo{width:64px;height:64px}}
