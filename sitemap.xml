@@ -43,7 +43,7 @@ layout: null
   {% for post in site.posts %}
   <url>
     <loc>https://trtechmedia.com{{ post.url }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ post.modified_at | default: post.date | date_to_xmlschema }}</lastmod>
     <image:image><image:loc>https://trtechmedia.com{{ post.cover_image }}</image:loc></image:image>
   </url>
   {% endfor %}
