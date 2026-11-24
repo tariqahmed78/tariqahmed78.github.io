@@ -1,27 +1,21 @@
 /* Image-led homepage, article index, and post covers. */
 .editorial-home,
 .editorial-archive {
-  --ed-paper: #f8f7fc;
-  --ed-card: #fff;
-  --ed-ink: #1a1730;
-  --ed-muted: #5a5570;
-  --ed-line: #e3dfed;
-  --ed-accent: #6332c7;
-  --ed-tint: #f0eafe;
-  --ed-shadow: 0 18px 36px rgba(54, 39, 91, .08);
+  --ed-paper: var(--bg);
+  --ed-card: var(--surface);
+  --ed-ink: var(--text);
+  --ed-muted: var(--text-dim);
+  --ed-line: var(--border);
+  --ed-accent: var(--accent);
+  --ed-tint: var(--tag-bg);
+  --ed-shadow: var(--shadow);
+  --ed-lead: linear-gradient(120deg, var(--bg2), var(--tag-bg));
   background: var(--ed-paper);
   color: var(--ed-ink);
   position: relative;
 }
-[data-theme="dark"] :is(.editorial-home, .editorial-archive) {
-  --ed-paper: #10111c;
-  --ed-card: #171927;
-  --ed-ink: #f4f1fc;
-  --ed-muted: #b6b1cc;
-  --ed-line: #342f47;
-  --ed-accent: #c3b1ff;
-  --ed-tint: #25203b;
-  --ed-shadow: 0 18px 36px rgba(0, 0, 0, .2);
+[data-theme="dark"] .editorial-home {
+  --ed-lead: radial-gradient(ellipse at 82% 0%, #392257 0%, var(--bg2) 58%, var(--bg) 100%);
 }
 .editorial-home .wrap,
 .editorial-archive .wrap {
@@ -30,8 +24,8 @@
 }
 .editorial-lead {
   padding-block: clamp(2rem, 5vw, 3.9rem);
-  background: radial-gradient(ellipse at 82% 0%, #382659 0%, #151527 43%, #10131e 85%);
-  color: #fff;
+  background: var(--ed-lead);
+  color: var(--ed-ink);
 }
 .editorial-lead h1 {
   font-size: clamp(1.8rem, 4.5vw, 3.65rem);
@@ -105,8 +99,8 @@
 .editorial-latest {
   align-self: stretch;
   min-width: 0;
-  background: rgba(18, 17, 33, .86);
-  border: 1px solid #514567;
+  background: var(--ed-card);
+  border: 1px solid var(--ed-line);
   border-radius: 1.1rem;
   padding: clamp(.9rem, 2vw, 1.35rem);
   display: flex;
@@ -123,7 +117,7 @@
   list-style: none;
 }
 .editorial-latest li + li {
-  border-top: 1px solid #514567;
+  border-top: 1px solid var(--ed-line);
 }
 .editorial-latest-item {
   display: grid;
@@ -131,7 +125,7 @@
   gap: .75rem;
   align-items: center;
   padding-block: .85rem;
-  color: #fff;
+  color: var(--ed-ink);
 }
 .editorial-latest-item .editorial-image {
   border-radius: .35rem;
@@ -142,15 +136,15 @@
   line-height: 1.25;
 }
 .editorial-latest .editorial-category {
-  color: #dacbff;
+  color: var(--ed-accent);
 }
 .editorial-latest .editorial-meta {
-  color: #cfcae0;
+  color: var(--ed-muted);
   font-size: .8rem;
 }
 .editorial-latest .editorial-text-link {
-  color: #e4d9ff;
-  border-top: 1px solid #514567;
+  color: var(--ed-accent);
+  border-top: 1px solid var(--ed-line);
   padding-top: .7rem;
   margin-top: .45rem;
 }

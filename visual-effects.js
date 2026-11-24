@@ -15,7 +15,7 @@
   function start() {
     if (document.getElementById('three-canvas') && !window.matchMedia('(max-width: 768px)').matches) {
       load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
-        .then(function () { return load('three-bg.js?v=fast-1'); })
+        .then(function () { return load('three-bg.js?v=appearance-1'); })
         .catch(function () { /* CSS ambient background remains available. */ });
     }
     if (document.querySelector('.reveal, .scroll-progress, .legal, .contact-card')) {

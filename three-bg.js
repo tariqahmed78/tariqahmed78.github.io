@@ -37,17 +37,17 @@
 
     // --- Colors ---
     var COLORS = {
-      skyBlue:  0x0EA5E9,
-      blue:     0x2563EB,
-      purple:   0x818CF8,
-      cyan:     0x3ED2FF
+      violet: 0xAB7BE9,
+      plum: 0x7132B5,
+      lilac: 0xD1B0FF,
+      amber: 0xFFB45A
     };
 
     var COLORS_LIGHT = {
-      skyBlue:  0x0284C7,
-      blue:     0x1D4ED8,
-      purple:   0x6D28D9,
-      cyan:     0x0EA5E9
+      violet: 0xA16ADC,
+      plum: 0x6123A7,
+      lilac: 0x7936B5,
+      amber: 0xBD5C0A
     };
 
     function getColors() {
@@ -143,7 +143,7 @@
     particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
     var particleMat = new THREE.PointsMaterial({
-      color: isDark() ? COLORS.cyan : COLORS_LIGHT.skyBlue,
+      color: isDark() ? COLORS.lilac : COLORS_LIGHT.violet,
       size: isMobile ? 0.09 : 0.07,
       transparent: true,
       opacity: isDark() ? (isMobile ? 0.35 : 0.4) : 0.16,
@@ -156,11 +156,11 @@
     scene.add(particles);
 
     // --- Dynamic Orbiting Lights ---
-    var light1 = new THREE.PointLight(COLORS.skyBlue, isDark() ? 0.8 : 0.2, 50);
+    var light1 = new THREE.PointLight(COLORS.violet, isDark() ? 0.8 : 0.2, 50);
     light1.position.set(10, 10, 10);
     scene.add(light1);
 
-    var light2 = new THREE.PointLight(COLORS.purple, isDark() ? 0.5 : 0.1, 50);
+    var light2 = new THREE.PointLight(COLORS.plum, isDark() ? 0.5 : 0.1, 50);
     light2.position.set(-10, -10, 5);
     scene.add(light2);
 
@@ -216,7 +216,7 @@
         m.material.color.setHex(cols[m.userData.colorKey]);
       });
       particleMat.opacity = dark ? (isMobile ? 0.35 : 0.4) : 0.16;
-      particleMat.color.setHex(dark ? COLORS.cyan : COLORS_LIGHT.skyBlue);
+      particleMat.color.setHex(dark ? COLORS.lilac : COLORS_LIGHT.violet);
       light1.intensity = dark ? 0.8 : 0.2;
       light2.intensity = dark ? 0.5 : 0.1;
     });

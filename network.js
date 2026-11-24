@@ -46,7 +46,7 @@
   }
 
   function step(t) {
-    var rgb = hexToRgb(cssVar('--cyan') || '#3ED2FF');
+    var rgb = hexToRgb(cssVar('--accent-soft') || '#A16ADC');
     var col = rgb.join(',');
     ctx.clearRect(0, 0, W, H);
 
@@ -137,6 +137,13 @@
     makeNodes();
     if (reduced) step(0);
   });
+
+  if (reduced) {
+    new MutationObserver(function () { step(0); }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
 
   init();
 })();
