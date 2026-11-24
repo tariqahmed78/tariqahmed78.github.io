@@ -57,10 +57,16 @@
       navToggle.addEventListener('click', function (e) {
         // Stop the legacy bubbling listener from reversing the toggle.
         e.stopImmediatePropagation();
-        setMenu(!navLinks.classList.contains('open'));
+        var open = !navLinks.classList.contains('open');
+        setMenu(open);
+        var firstLink = navLinks.querySelector('a[href]');
+        if (open && e.detail === 0 && firstLink) firstLink.focus();
       }, true);
       document.addEventListener('click', function (e) {
         if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) setMenu(false);
+      });
+      document.addEventListener('focusin', function (e) {
+        if (e.target !== navToggle && !navLinks.contains(e.target)) setMenu(false);
       });
       navLinks.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () { setMenu(false); });
@@ -71,10 +77,10 @@
           navToggle.focus();
         }
       });
-      var desktopNav = window.matchMedia('(min-width: 761px)');
+      var mobileNav = window.matchMedia('(max-width: 760px)');
       function resetMenu() { setMenu(false); }
-      if (desktopNav.addEventListener) desktopNav.addEventListener('change', resetMenu);
-      else if (desktopNav.addListener) desktopNav.addListener(resetMenu);
+      if (mobileNav.addEventListener) mobileNav.addEventListener('change', resetMenu);
+      else if (mobileNav.addListener) mobileNav.addListener(resetMenu);
     }
   });
 })();

@@ -13,7 +13,7 @@
     });
   }
   function start() {
-    if (document.getElementById('three-canvas')) {
+    if (document.getElementById('three-canvas') && !window.matchMedia('(max-width: 768px)').matches) {
       load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
         .then(function () { return load('three-bg.js?v=fast-1'); })
         .catch(function () { /* CSS ambient background remains available. */ });

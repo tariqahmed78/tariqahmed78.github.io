@@ -1446,25 +1446,13 @@ body{animation:page-fade .35s ease}
   opacity: 0.7;
 }
 
-/* ---- Mobile: reduce 3D intensity ---- */
+/* ---- Mobile effects ---- */
 @media (max-width: 768px) {
   #three-canvas {
-    opacity: 0.5;
-  }
-  [data-theme="light"] #three-canvas {
-    opacity: 0.2;
+    display: none;
   }
   .scroll-progress {
     height: 2px;
-  }
-}
-
-@media (max-width: 480px) {
-  #three-canvas {
-    opacity: 0.3;
-  }
-  [data-theme="light"] #three-canvas {
-    opacity: 0.12;
   }
 }
 
@@ -1557,6 +1545,7 @@ body{animation:page-fade .35s ease}
 
 /* Mobile usability: preserve side gutters when sections set vertical padding. */
 @media (max-width: 768px) {
+  html { scroll-padding-top: calc(76px + env(safe-area-inset-top)); }
   .site-header .nav, .hero-overlay.wrap, .section.wrap, .page-head.wrap,
   .article-header.wrap, .app-hero.wrap, .app-section.wrap, .site-footer.wrap {
     padding-left: max(1rem, env(safe-area-inset-left));
@@ -1571,6 +1560,8 @@ body{animation:page-fade .35s ease}
     overflow-y: auto;
     overscroll-behavior: contain;
   }
+  .hero-overlay { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+  .hero-grid { gap: 1.25rem; }
   .hero-grid > *, .article-grid > *, .product-card > *, .app-hero-text { min-width: 0; }
   .article-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
   .featured-card h1, .article-card h3, .article-header h1, .email-box { overflow-wrap: anywhere; }
