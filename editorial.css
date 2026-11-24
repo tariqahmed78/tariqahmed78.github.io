@@ -427,3 +427,20 @@
   color: var(--text-dim);
   font-size: .86rem;
 }
+
+.pc-port-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.65rem, 3vw, 1rem);
+  margin: 0 0 1.5rem;
+}
+.pc-port-evidence figure {
+  margin: 0;
+}
+.pc-port-evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: .65rem;
+}

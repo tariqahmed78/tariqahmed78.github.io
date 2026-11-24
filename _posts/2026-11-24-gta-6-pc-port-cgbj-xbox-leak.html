@@ -1,0 +1,227 @@
+---
+layout: null
+title: "GTA 6 PC Port Reportedly Reaches In-Game Rendering"
+date: "2026-11-24T18:19:07+05:00"
+permalink: /gta-6-pc-port-cgbj-xbox-leak.html
+category_slug: gaming
+category_label: Gaming
+summary: "The unofficial GTA 6 PC project CGBJ reportedly rendered in-game scenes after Cyberleek’s Xbox build leak. Here’s what the tests and Discord reports show."
+cover_image: /images/editorial/gta-6-pc-port-jason-lucia.jpg
+cover_small: /images/editorial/gta-6-pc-port-jason-lucia-small.jpg
+cover_alt: "Jason Duval and Lucia Caminos outside a car in an official GTA VI screenshot from Rockstar Games"
+reading_time: 4
+topic_tags: ["GTA 6", "PC Port", "CGBJ", "Cyberleek", "Leonida"]
+search_keywords: ["GTA 6 PC port", "GTA 6 in-game rendering", "CGBJ GTA 6 PC project", "Cyberleek GTA 6 Xbox build leak", "Leonida Discord takedown", "GTA 6 PC release date"]
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-theme-preference="light">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://trtech-likes.madebyt786.workers.dev https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://trtech-likes.madebyt786.workers.dev https://www.google-analytics.com; frame-src https://googleads.g.doubleclick.net;">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% assign canonical_url = page.url | prepend: "https://trtechmedia.com" %}
+{% assign cover_url = page.cover_image | prepend: "https://trtechmedia.com" %}
+{% assign published = page.date | date_to_xmlschema %}
+{% assign modified = page.modified_at | default: page.date | date_to_xmlschema %}
+<title>{{ page.title | escape }}</title>
+<meta name="description" content="{{ page.summary | escape }}">
+<meta name="author" content="TR Tech Media">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="TR Tech Media">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.summary | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ cover_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="{{ page.cover_alt | escape }}">
+<meta property="article:published_time" content="{{ published }}">
+<meta property="article:modified_time" content="{{ modified }}">
+<meta property="article:section" content="{{ page.category_label | escape }}">
+{% for topic in page.topic_tags %}
+<meta property="article:tag" content="{{ topic | escape }}">
+{% endfor %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title | escape }}">
+<meta name="twitter:description" content="{{ page.summary | escape }}">
+<meta name="twitter:image" content="{{ cover_url }}">
+<meta name="twitter:image:alt" content="{{ page.cover_alt | escape }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "@id": "{{ canonical_url }}#article",
+      "url": "{{ canonical_url }}",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "{{ canonical_url }}"},
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.summary | jsonify }},
+      "datePublished": "{{ published }}",
+      "dateModified": "{{ modified }}",
+      "inLanguage": "en",
+      "articleSection": {{ page.category_label | jsonify }},
+      "keywords": {{ page.search_keywords | jsonify }},
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ cover_url }}",
+        "width": 1200,
+        "height": 675,
+        "caption": {{ page.cover_alt | jsonify }},
+        "creditText": "Rockstar Games"
+      },
+      "about": [
+        {"@type": "VideoGame", "name": "Grand Theft Auto VI", "url": "https://www.rockstargames.com/VI"},
+        {"@type": "Organization", "name": "Rockstar Games"}
+      ],
+      "citation": [
+        "https://www.dsogaming.com/news/grand-theft-auto-6-unofficial-pc-port-cgbj-now-reaches-in-game/",
+        "https://www.pcgamer.com/games/grand-theft-auto/cyberleek-releases-executable-for-gta-6-xbox-build-leaked-last-week-the-torch-passes-to-the-open-source-recomp-and-emulation-projects/",
+        "https://www.tarreo.com/pc/leonida-port-pc-gta-6-desaparece-github-discord-rockstar/",
+        "https://www.rockstargames.com/VI/out-now"
+      ],
+      "author": {"@type": "Organization", "name": "TR Tech Media", "url": "https://trtechmedia.com/about.html"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "TR Tech Media",
+        "url": "https://trtechmedia.com/",
+        "logo": {"@type": "ImageObject", "url": "https://trtechmedia.com/tr-tech-media-logo.png"}
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://trtechmedia.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://trtechmedia.com/articles.html"},
+        {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ canonical_url }}"}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=brand-1">
+<link rel="apple-touch-icon" href="favicon-180.png?v=brand-1">
+<script src="theme.js?v=appearance-1"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&amp;display=swap">
+<link rel="stylesheet" href="style.css?v=appearance-1">
+<link rel="stylesheet" href="editorial.css?v=pc-port-1">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav wrap">
+    <a class="wordmark" href="/"><img class="mark" src="tr-tech-media-logo.png" width="40" height="40" alt="" decoding="async"><span class="name">TR Tech Media</span></a>
+    <div class="nav-right">
+      <div class="nav-links" id="nav-links">
+        <a href="/"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+        <a href="articles.html" class="active"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+        <a href="products.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+        <a href="about.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+        <a href="contact.html"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+      </div>
+      <div class="theme-picker" id="theme-picker" hidden>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Appearance (Light)" aria-controls="theme-options" aria-expanded="false">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m17-7-1.5 1.5m-11 11L5 19m14 0-1.5-1.5m-11-11L5 5"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.5A9 9 0 1111.5 3 7 7 0 0021 12.5z"/></svg>
+          <svg class="system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4m-4 0h8"/></svg>
+        </button>
+        <div class="theme-options" id="theme-options" hidden>
+          <fieldset>
+            <legend>Appearance</legend>
+            <label><input type="radio" name="site-appearance" value="light" checked> Light</label>
+            <label><input type="radio" name="site-appearance" value="dark"> Dark</label>
+            <label><input type="radio" name="site-appearance" value="system"> System</label>
+          </fieldset>
+        </div>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<main class="market-article" id="main">
+  <article aria-labelledby="article-title">
+    <header class="article-header wrap">
+      <nav class="article-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <a href="/articles.html">Articles</a><span aria-hidden="true">/</span>
+        <span aria-current="page">GTA 6 PC port progress</span>
+      </nav>
+      <a class="tag" href="/articles.html?category={{ page.category_slug }}">{{ page.category_label | escape }}</a>
+      <h1 id="article-title">{{ page.title | escape }}</h1>
+      <p class="article-deck">A private CGBJ test reportedly showed movement and NPC interactions after the Xbox build leak. The Leonida project’s Discord server also disappeared.</p>
+      <div class="article-meta">
+        <a href="/about.html">TR Tech Media</a>
+        <time datetime="{{ published }}">{{ page.date | date: "%-d %B %Y" }}</time>
+        <span>{{ page.reading_time }} min read</span>
+      </div>
+    </header>
+
+    <figure class="editorial-cover">
+      <img src="{{ page.cover_image }}" srcset="{{ page.cover_small }} 480w, {{ page.cover_image }} 1200w" sizes="(max-width: 832px) 100vw, 832px" width="1200" height="675" alt="{{ page.cover_alt | escape }}" decoding="async" fetchpriority="high">
+      <figcaption>Jason and Lucia in an official promotional screenshot from <a href="https://www.rockstargames.com/VI/media/screenshots">Rockstar Games</a>.</figcaption>
+    </figure>
+
+    <div class="article-body">
+      <p>An unofficial GTA 6 PC project called <strong>CGBJ</strong> reportedly reached in-game rendering on November 24, 2026. DSOGaming reported that a private test let a player move with a controller, interact with non-player characters and open the in-game menu. The tests followed Cyberleek’s claim that it released the main executable for a leaked Xbox Series build. Lighting and performance remained rough, and a stable, publicly playable PC build has yet to be independently verified. <a href="https://www.dsogaming.com/news/grand-theft-auto-6-unofficial-pc-port-cgbj-now-reaches-in-game/">DSOGaming</a> and <a href="https://www.pcgamer.com/games/grand-theft-auto/cyberleek-releases-executable-for-gta-6-xbox-build-leaked-last-week-the-torch-passes-to-the-open-source-recomp-and-emulation-projects/">PC Gamer</a>.</p>
+
+      <h2>What the GTA 6 PC rendering clips show</h2>
+      <p>Getting beyond the menu means the test can draw parts of a scene and respond to player input. The clips shared on X show a game window with visible characters and scenery, alongside rendering glitches. The account <strong>onyx</strong> credited CGBJ in one post. Separately, <strong>chasm</strong> reported improvement in shaders and character hair. Shaders help determine how surfaces look on screen, including how they respond to light. Chasm said in a reply that they share updates from several projects. Their prediction of quick visual fixes was an estimate. <a href="https://nitter.cf/chasmmmmmmmmmmm/with_replies">Chasm’s posts and replies</a>.</p>
+
+      <div class="pc-port-evidence">
+        <figure>
+          <a href="/images/editorial/gta-6-pc-rendering-onyx-ign.jpg"><img src="/images/editorial/gta-6-pc-rendering-onyx-ign.jpg" width="600" height="1300" loading="lazy" decoding="async" alt="X screenshot of onyx sharing an apparent CGBJ rendering test, followed by IGN’s report on the Xbox build executable"></a>
+          <figcaption>Onyx’s CGBJ clip and IGN’s post about the Xbox executable.</figcaption>
+        </figure>
+        <figure>
+          <a href="/images/editorial/gta-6-pc-rendering-chasm.jpg"><img src="/images/editorial/gta-6-pc-rendering-chasm.jpg" width="600" height="1300" loading="lazy" decoding="async" alt="X screenshot of chasm reporting partial shader and hair improvements alongside an early GTA 6 PC rendering clip"></a>
+          <figcaption>Chasm’s update on partial shader and hair improvements.</figcaption>
+        </figure>
+      </div>
+
+      <h2>What Cyberleek claimed to leak and when</h2>
+      <p>On November 19, Cyberleek claimed to have released a November Xbox development build labeled <strong>1.0.2.1</strong>. The initial release was reported to omit the executable, the program that starts the game. On November 23, the leaker said that executable was out. PC Gamer reported the update, and community groups began showing early attempts to run the Xbox code on Windows. The build’s provenance remains unverified by Rockstar. In the reporting reviewed, Cyberleek is the name associated with the leak, while CGBJ and the other named projects are associated with the PC tests. <a href="https://www.videogameschronicle.com/news/cyberleek-claims-to-release-development-build-of-gta-6/">VGC</a> and <a href="https://www.pcgamer.com/games/grand-theft-auto/cyberleek-releases-executable-for-gta-6-xbox-build-leaked-last-week-the-torch-passes-to-the-open-source-recomp-and-emulation-projects/">PC Gamer</a>.</p>
+
+      <h2>How far CGBJ, VIctory and other projects got</h2>
+      <p>DSOGaming described CGBJ as a private build based on work from <strong>VIctory</strong> and <strong>XCL</strong>. VIctory’s public status notes showed it could reach menus and load the opening area, where rendering was still incomplete. DSOGaming reported that XCL reached the menu, while <strong>Xbox2Windows</strong> and <strong>TuxBox</strong> had shown early frames. These are snapshots of separate tests, and the results can change as the projects update. The remaining milestones include rendering intact scenes, maintaining a stable frame rate and completing missions without crashes. <a href="https://www.dsogaming.com/news/grand-theft-auto-6-unofficial-pc-port-cgbj-now-reaches-in-game/">DSOGaming’s project roundup</a> and <a href="https://github.com/Marvisak/VIctory#status-2026-11-23">VIctory’s published status</a>.</p>
+
+      <h2>What happened to Leonida’s Discord server?</h2>
+      <p>The <strong>Leonida</strong> community’s Discord server became inaccessible around 23:06 GMT on November 23, early on November 24 in Pakistan. Tarreo reported that the server had around 179,000 members shortly before it disappeared. The project’s GitHub repository also stopped loading, and its creator, known publicly as NotRexed, said they were stepping away and attributed the server removal to Rockstar. A GitHub 404 can also appear if a repository goes private. Public confirmation of who removed the server or whether a personal Discord account was deleted is still missing. <a href="https://www.tarreo.com/pc/leonida-port-pc-gta-6-desaparece-github-discord-rockstar/">Tarreo</a> and <a href="https://www.notebookcheck.net/As-GTA-6-PC-port-gets-closer-to-becoming-playable-Rockstar-is-reportedly-taking-action-against-modders-and-Discord-communities.1458181.0.html">Notebookcheck</a>.</p>
+      <p>Take-Two had previously obtained a federal subpoena directing Discord to provide information identifying people suspected of copyright infringement. That August 31 order concerned identifying users. The circumstances of Leonida’s November disappearance remain unconfirmed. <a href="https://cases.justia.com/federal/district-courts/new-york/nysdce/1%3A2026mc00422/671042/10/0.pdf">Federal court order</a>.</p>
+
+      <h2>Is there an official GTA 6 PC release date?</h2>
+      <p>Rockstar’s November 19 launch announcement lists PlayStation 5 and Xbox Series X|S. As of November 24, Rockstar had not announced a GTA 6 PC release date in its official launch materials, and CGBJ remained a private test. <a href="https://www.rockstargames.com/VI/out-now">Rockstar’s launch announcement</a> and <a href="https://www.dsogaming.com/news/grand-theft-auto-6-unofficial-pc-port-cgbj-now-reaches-in-game/">DSOGaming</a>.</p>
+
+      <p>Already playing on console? See our <a href="/gta-6-true-ending.html">GTA 6 true ending guide</a> and <a href="/gta-6-bad-ending.html">GTA 6 bad ending guide</a>.</p>
+      <ul class="article-topics" aria-label="Article topics">
+        {% for topic in page.topic_tags %}
+        <li>{{ topic | escape }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </article>
+</main>
+
+<hr class="gradient-divider">
+
+<footer class="site-footer wrap">
+  <div class="footer-row">
+    <div class="copyright"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>© 2026 TR Tech Media. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="articles.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Articles</a>
+      <a href="products.html"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Products</a>
+      <a href="about.html"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>About</a>
+      <a href="contact.html"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="cookie-consent.js?v=fast-1"></script>
+</body>
+</html>
