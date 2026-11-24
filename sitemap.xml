@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -37,4 +40,11 @@
       <image:loc>https://trtechmedia.com/images/editorial/gta-6-bad-ending-police-pursuit.jpg</image:loc>
     </image:image>
   </url>
+  {% for post in site.posts %}
+  <url>
+    <loc>https://trtechmedia.com{{ post.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <image:image><image:loc>https://trtechmedia.com{{ post.cover_image }}</image:loc></image:image>
+  </url>
+  {% endfor %}
 </urlset>

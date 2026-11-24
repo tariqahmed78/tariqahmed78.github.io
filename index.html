@@ -1,3 +1,6 @@
+---
+---
+{%- assign featured = site.posts.first -%}
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-theme-preference="light">
 <head>
@@ -18,15 +21,27 @@
 <meta property="og:title" content="TR Tech Media — Technology, explained clearly">
 <meta property="og:description" content="News, articles, and how-to guides on technology — from networking to Android development, written clearly and without the fluff.">
 <meta property="og:url" content="https://trtechmedia.com/">
+{% if featured %}
+<meta property="og:image" content="https://trtechmedia.com{{ featured.cover_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="{{ featured.cover_alt | escape }}">
+{% else %}
 <meta property="og:image" content="https://trtechmedia.com/images/editorial/router-signal.jpg">
 <meta property="og:image:width" content="1320">
 <meta property="og:image:height" content="880">
 <meta property="og:image:alt" content="A dark home Wi-Fi router with amber status lights">
+{% endif %}
 <meta property="og:site_name" content="TR Tech Media">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TR Tech Media — Technology, explained clearly">
 <meta name="twitter:description" content="News, articles, and how-to guides on technology — from networking to Android development, written clearly and without the fluff.">
+{% if featured %}
+<meta name="twitter:image" content="https://trtechmedia.com{{ featured.cover_image }}">
+<meta name="twitter:image:alt" content="{{ featured.cover_alt | escape }}">
+{% else %}
 <meta name="twitter:image" content="https://trtechmedia.com/images/editorial/router-signal.jpg">
+{% endif %}
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=brand-1">
 <link rel="apple-touch-icon" href="favicon-180.png?v=brand-1">
 <script src="theme.js?v=appearance-1"></script>
@@ -91,6 +106,17 @@
     <div class="wrap">
       <h1 id="home-heading">Technology, explained clearly</h1>
       <div class="editorial-lead-grid">
+        {% if featured %}
+        <a class="editorial-hero" href="{{ featured.url }}">
+          <img src="{{ featured.cover_small }}" srcset="{{ featured.cover_small }} 480w, {{ featured.cover_image }} 1200w" sizes="(max-width: 720px) 100vw, (max-width: 1200px) 64vw, 800px" width="1200" height="675" alt="" fetchpriority="high" decoding="async">
+          <div class="editorial-hero-copy">
+            <span class="editorial-badge">Highlighted · {{ featured.category_label | escape }}</span>
+            <h2>{{ featured.title | escape }}</h2>
+            <p>{{ featured.summary | escape }}</p>
+            <span class="editorial-meta"><time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%-d %b %Y" }}</time><span>{{ featured.reading_time }} min read</span></span>
+          </div>
+        </a>
+        {% else %}
         <a class="editorial-hero" href="post-1.html">
           <img src="images/editorial/router-signal.jpg" srcset="images/editorial/router-signal-small.jpg 672w, images/editorial/router-signal.jpg 1320w" sizes="(max-width: 720px) 100vw, (max-width: 1200px) 64vw, 800px" width="1320" height="880" alt="" fetchpriority="high" decoding="async">
           <div class="editorial-hero-copy">
@@ -100,10 +126,23 @@
             <span class="editorial-meta"><span>Jul 2026</span><span>6 min read</span></span>
           </div>
         </a>
+        {% endif %}
         <section class="editorial-latest" aria-labelledby="latest-heading">
           <div>
             <h2 id="latest-heading">Latest posts</h2>
             <ol>
+            {% for post in site.posts offset:1 limit:4 %}
+            <li>
+              <a class="editorial-latest-item" href="{{ post.url }}">
+                <img class="editorial-image" src="{{ post.cover_small }}" width="480" height="270" alt="" decoding="async">
+                <div>
+                  <span class="editorial-category">{{ post.category_label | escape }}</span>
+                  <h3>{{ post.title | escape }}</h3>
+                  <span class="editorial-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time><span>{{ post.reading_time }} min read</span></span>
+                </div>
+              </a>
+            </li>
+            {% endfor %}
             <li>
               <a class="editorial-latest-item" href="gta-6-true-ending.html">
                 <img class="editorial-image" src="images/editorial/gta-6-true-ending-jason-lucia-small.jpg" width="480" height="270" alt="" decoding="async">
@@ -170,6 +209,7 @@
       <a href="articles.html?category=samsung">Samsung</a>
       <a href="articles.html?category=apps">Apps &amp; Privacy</a>
       <a href="articles.html?category=smart-home">Smart Home</a>
+      <a href="articles.html?category=ai-chips">AI &amp; Chips</a>
       <a href="articles.html?category=gaming">Gaming</a>
     </div>
   </nav>

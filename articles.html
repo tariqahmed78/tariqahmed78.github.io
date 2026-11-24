@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-theme-preference="light">
 <head>
@@ -85,9 +87,21 @@
       <button type="button" class="cat-btn" data-filter="samsung" aria-pressed="false">Samsung</button>
       <button type="button" class="cat-btn" data-filter="apps" aria-pressed="false">Apps &amp; Privacy</button>
       <button type="button" class="cat-btn" data-filter="smart-home" aria-pressed="false">Smart Home</button>
+      <button type="button" class="cat-btn" data-filter="ai-chips" aria-pressed="false">AI &amp; Chips</button>
       <button type="button" class="cat-btn" data-filter="gaming" aria-pressed="false">Gaming</button>
     </div>
     <div class="editorial-grid" id="filterable-grid">
+      {% for post in site.posts %}
+      <a class="editorial-card" data-category="{{ post.category_slug | escape }}" href="{{ post.url }}">
+        <img class="editorial-image" src="{{ post.cover_small }}" width="480" height="270" alt="" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">{{ post.category_label | escape }}</span>
+          <h2>{{ post.title | escape }}</h2>
+          <p>{{ post.summary | escape }}</p>
+          <span class="editorial-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time><span>{{ post.reading_time }} min read</span></span>
+        </div>
+      </a>
+      {% endfor %}
       <a class="editorial-card" data-category="gaming" href="gta-6-true-ending.html">
         <img class="editorial-image" src="images/editorial/gta-6-true-ending-jason-lucia-small.jpg" width="480" height="270" alt="" decoding="async">
         <div class="editorial-card-copy">
