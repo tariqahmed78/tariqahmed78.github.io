@@ -146,15 +146,14 @@ img{max-width:100%;display:block}
 
 .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
 .wordmark{display:flex;align-items:center;gap:.65rem}
-.wordmark .mark{
-  width:34px;height:34px;border-radius:10px;
-  background:var(--grad);
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  font-family:'Source Serif 4',serif;font-weight:700;font-size:.9rem;
-  box-shadow:var(--glow-s);
-  transition:box-shadow .2s ease,transform .2s ease;
+.wordmark .mark {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  transition: transform .2s ease;
 }
-.wordmark:hover .mark{box-shadow:var(--glow);transform:scale(1.08) rotate(-3deg)}
+.wordmark:hover .mark { transform: scale(1.06); }
 .wordmark .name{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-.02em}
 
 .nav-right{display:flex;align-items:center;gap:1.2rem}
@@ -948,7 +947,7 @@ body{animation:page-fade .35s ease}
 
   /* Nav */
   .wordmark .name { font-size: .95rem; }
-  .wordmark .mark { width: 28px; height: 28px; font-size: .75rem; }
+  .wordmark .mark { width: 34px; height: 34px; }
 
   /* Hero */
   .hero-overlay { padding: 2rem 0 1.8rem; }
@@ -1343,13 +1342,6 @@ body{animation:page-fade .35s ease}
 }
 
 /* ---- Wordmark 3D entrance ---- */
-.wordmark .mark {
-  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.wordmark:hover .mark {
-  box-shadow: 0 0 25px rgba(14,165,233,0.5), var(--glow);
-  transform: scale(1.12) rotate(-5deg) translateZ(10px);
-}
 
 /* ---- Tag glow on card hover ---- */
 .article-card:hover .tag,
@@ -1425,9 +1417,6 @@ body{animation:page-fade .35s ease}
   box-shadow:
     0 0 18px rgba(14,165,233,0.2),
     0 6px 16px rgba(0,0,0,0.08);
-}
-[data-theme="light"] .wordmark:hover .mark {
-  box-shadow: 0 0 18px rgba(14,165,233,0.25), var(--glow);
 }
 [data-theme="light"] .article-card:hover .card-icon,
 [data-theme="light"] .feature-card:hover .feature-icon-box {
