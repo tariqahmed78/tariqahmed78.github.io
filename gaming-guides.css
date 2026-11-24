@@ -1,0 +1,73 @@
+.game-guide .article-body {
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+}
+
+.game-guide .article-cover-credit {
+  margin: .55rem .15rem 0;
+  color: var(--text-dim);
+  font-size: .86rem;
+  line-height: 1.55;
+}
+
+.game-guide .article-cover-credit a,
+.game-guide .article-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.game-guide .game-quick-answer,
+.game-guide .game-checklist,
+.game-guide .game-toc {
+  margin-block: 1rem 1.4rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+}
+
+.game-guide .game-quick-answer {
+  border-inline-start: 4px solid var(--accent);
+}
+
+.game-guide .game-quick-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.game-guide .game-spoiler {
+  font-size: .92rem;
+}
+
+.game-guide :is(ul, ol) {
+  padding-inline-start: 1.3rem;
+  margin-block: .6rem 1.3rem;
+}
+
+.game-guide li {
+  padding-inline-start: .2rem;
+  margin-block: .4rem;
+}
+
+.game-guide .game-toc ul,
+.game-guide .game-checklist ul {
+  margin-bottom: 0;
+}
+
+.game-guide h2[id],
+.game-guide h3[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+.game-guide h3 {
+  margin-block: 1rem .5rem;
+}
+
+.game-guide kbd {
+  display: inline-block;
+  padding: .04rem .36rem;
+  border: 1px solid var(--border-s);
+  border-radius: .35rem;
+  background: var(--surface-s);
+  font: inherit;
+  font-weight: 700;
+}
