@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://trtechmedia.com/about.html</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://trtechmedia.com/articles.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://trtechmedia.com/contact.html</loc><lastmod>2026-07-15</lastmod></url>
@@ -22,6 +23,18 @@
   <url><loc>https://trtechmedia.com/products.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://trtechmedia.com/terms.html</loc><lastmod>2026-08-05</lastmod></url>
   <url><loc>https://trtechmedia.com/website-privacy-policy.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://trtechmedia.com/gta-6-true-ending.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://trtechmedia.com/gta-6-bad-ending.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url>
+    <loc>https://trtechmedia.com/gta-6-true-ending.html</loc>
+    <lastmod>2026-11-24T12:07:14+05:00</lastmod>
+    <image:image>
+      <image:loc>https://trtechmedia.com/images/editorial/gta-6-true-ending-jason-lucia.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://trtechmedia.com/gta-6-bad-ending.html</loc>
+    <lastmod>2026-11-24T12:07:14+05:00</lastmod>
+    <image:image>
+      <image:loc>https://trtechmedia.com/images/editorial/gta-6-bad-ending-police-pursuit.jpg</image:loc>
+    </image:image>
+  </url>
 </urlset>
