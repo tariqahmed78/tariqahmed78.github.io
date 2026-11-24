@@ -32,7 +32,7 @@
   try { saved = localStorage.getItem(KEY); } catch(e){}
   if (saved === 'light') { apply(false); }
   else if (saved === 'dark') { apply(true); }
-  else { apply(true); } // default dark
+  else { apply(root.getAttribute('data-default-theme') !== 'light'); }
 
   document.addEventListener('DOMContentLoaded', function () {
     // Theme toggle

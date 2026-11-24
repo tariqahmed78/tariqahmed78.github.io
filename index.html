@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-default-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -18,22 +18,23 @@
 <meta property="og:title" content="TR Tech Media — Technology, explained clearly">
 <meta property="og:description" content="News, articles, and how-to guides on technology — from networking to Android development, written clearly and without the fluff.">
 <meta property="og:url" content="https://trtechmedia.com/">
-<meta property="og:image" content="https://trtechmedia.com/favicon-180.png">
+<meta property="og:image" content="https://trtechmedia.com/images/editorial/router-signal.jpg">
+<meta property="og:image:width" content="1320">
+<meta property="og:image:height" content="880">
+<meta property="og:image:alt" content="A dark home Wi-Fi router with amber status lights">
 <meta property="og:site_name" content="TR Tech Media">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TR Tech Media — Technology, explained clearly">
 <meta name="twitter:description" content="News, articles, and how-to guides on technology — from networking to Android development, written clearly and without the fluff.">
-<meta name="twitter:image" content="https://trtechmedia.com/favicon-180.png">
+<meta name="twitter:image" content="https://trtechmedia.com/images/editorial/router-signal.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&amp;display=swap">
 <link rel="stylesheet" href="style.css?v=fast-1">
-<link rel="stylesheet" href="muddi.css?v=mascot-1">
+<link rel="stylesheet" href="editorial.css?v=1">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://trtechmedia.com/#organization","name":"TR Tech Media","url":"https://trtechmedia.com/"},{"@type":"WebSite","@id":"https://trtechmedia.com/#website","url":"https://trtechmedia.com/","name":"TR Tech Media","description":"News, articles, and how-to guides on technology — from networking to Android development, written clearly and without the fluff.","inLanguage":"en","publisher":{"@id":"https://trtechmedia.com/#organization"}}]}</script>
 </head>
 <body>
-<canvas id="three-canvas" aria-hidden="true"></canvas>
-<div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header">
   <nav class="nav wrap">
@@ -73,213 +74,155 @@
   </nav>
 </header>
 
-<section class="hero-canvas-wrap">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-overlay wrap">
-
-  <div class="hero-tagline reveal">
-    <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>
-    Technology, explained clearly
-  </div>
-
-  <div class="hero-grid">
-    <a href="post-1.html" class="featured-card reveal">
-      <span class="tag">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-        Networking
-      </span>
-      <h1>Why Your Router Keeps Dropping Signal (And How to Actually Fix It)</h1>
-      <p>Restarting your router only fixes the symptom. Here's what's actually going on with your network, and how to diagnose it properly.</p>
-      <div class="featured-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>6 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
+<main class="editorial-home" id="main">
+  <section class="editorial-lead" aria-labelledby="home-heading">
+    <div class="wrap">
+      <h1 id="home-heading">Technology, explained clearly</h1>
+      <div class="editorial-lead-grid">
+        <a class="editorial-hero" href="post-1.html">
+          <img src="images/editorial/router-signal.jpg" srcset="images/editorial/router-signal-small.jpg 672w, images/editorial/router-signal.jpg 1320w" sizes="(max-width: 720px) 100vw, (max-width: 1200px) 64vw, 800px" width="1320" height="880" alt="" fetchpriority="high" decoding="async">
+          <div class="editorial-hero-copy">
+            <span class="editorial-badge">Featured · Networking</span>
+            <h2>Why Your Router Keeps Dropping Signal (And How to Actually Fix It)</h2>
+            <p>Find out what’s causing your Wi-Fi dropouts and what to check before restarting your router again.</p>
+            <span class="editorial-meta"><span>Jul 2026</span><span>6 min read</span></span>
+          </div>
+        </a>
+        <section class="editorial-latest" aria-labelledby="latest-heading">
+          <div>
+            <h2 id="latest-heading">Latest posts</h2>
+            <ol>
+            <li>
+              <a class="editorial-latest-item" href="muddi-app-guide.html">
+                <img class="editorial-image" src="images/editorial/muddi-app.jpg" width="512" height="320" alt="" decoding="async">
+                <div>
+                  <span class="editorial-category">App spotlight</span>
+                  <h3>Meet Muddi: a fresh perspective on your media</h3>
+                  <span class="editorial-meta"><span>5 Nov 2026</span><span>6 min read</span></span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="editorial-latest-item" href="post-11.html">
+                <img class="editorial-image editorial-image--certification" src="samsung-s27-battery-certification.jpg" width="316" height="238" alt="" decoding="async">
+                <div>
+                  <span class="editorial-category">Samsung</span>
+                  <h3>Samsung Galaxy S27 Ultra and Galaxy S27 Pro Batteries Pictured in New Certification</h3>
+                  <span class="editorial-meta"><span>Oct 2026</span><span>4 min read</span></span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="editorial-latest-item" href="post-10.html">
+                <img class="editorial-image editorial-image--one-ui" src="one-ui-9-banner.jpg" width="1024" height="483" alt="" decoding="async">
+                <div>
+                  <span class="editorial-category">Samsung</span>
+                  <h3>Samsung One UI 9 Beta Coming to Galaxy S25 Series Sooner Than Expected</h3>
+                  <span class="editorial-meta"><span>Aug 2026</span><span>3 min read</span></span>
+                </div>
+              </a>
+            </li>
+            </ol>
+          </div>
+          <a class="editorial-text-link" href="articles.html">All articles</a>
+        </section>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <div class="side-list">
-      <a href="post-2.html" class="side-item reveal">
-        <span class="tag">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-          Networking
-        </span>
-        <h3>How to Read Your Connected Devices List Like a Network Admin</h3>
-        <span class="date">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Jul 2026 · 5 min read
-        </span>
+  <nav class="editorial-topic-nav" aria-label="Article topics">
+    <div class="wrap">
+      <span>Browse by topic</span>
+      <a href="articles.html?category=networking">Networking</a>
+      <a href="articles.html?category=connectivity">Connectivity</a>
+      <a href="articles.html?category=samsung">Samsung</a>
+      <a href="articles.html?category=apps">Apps &amp; Privacy</a>
+      <a href="articles.html?category=smart-home">Smart Home</a>
+    </div>
+  </nav>
+
+  <section class="editorial-section wrap" aria-labelledby="picks-heading">
+    <div class="editorial-section-head">
+      <h2 id="picks-heading">Editor’s picks</h2>
+    </div>
+    <div class="editorial-picks">
+      <a class="editorial-card editorial-card--feature" data-category="networking" href="post-2.html">
+        <img class="editorial-image" src="images/editorial/connected-devices.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Networking</span>
+          <h3>How to Read Your Connected Devices List Like a Network Admin</h3>
+          <p>Every MAC address and hostname tells you something, if you know what to look for.</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>5 min read</span></span>
+        </div>
       </a>
-      <a href="post-3.html" class="side-item reveal">
-        <span class="tag">
-          <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          Connectivity
-        </span>
-        <h3>Speed Test Results Explained: Upload, Download, and Ping</h3>
-        <span class="date">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Jul 2026 · 5 min read
-        </span>
+      <div class="editorial-picks-secondary">
+      <a class="editorial-card" data-category="networking" href="post-7.html">
+        <img class="editorial-image" src="images/editorial/router-settings.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Networking</span>
+          <h3>Your Router's Admin Page: What All Those Settings Actually Mean</h3>
+          <p>DHCP, DNS, QoS, UPnP — a plain-English guide to the menus you've never touched.</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>8 min read</span></span>
+        </div>
+      </a>
+      <a class="editorial-card" data-category="smart-home" href="post-4.html">
+        <img class="editorial-image" src="images/editorial/smart-home.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Smart Home</span>
+          <h3>Why Your Smart Home Devices Keep Disconnecting</h3>
+          <p>Smart plugs and bulbs are notorious for dropping off. Here is how to lock them in permanently.</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>4 min read</span></span>
+        </div>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-section wrap" aria-labelledby="connectivity-heading">
+    <div class="editorial-section-head">
+      <h2 id="connectivity-heading">Connectivity guides</h2>
+      <a class="editorial-text-link" href="articles.html?category=connectivity">Browse connectivity</a>
+    </div>
+    <div class="editorial-grid">
+      <a class="editorial-card" data-category="connectivity" href="post-3.html">
+        <img class="editorial-image" src="images/editorial/speed-test-results.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Connectivity</span>
+          <h3>Speed Test Results Explained: Upload, Download, and Ping</h3>
+          <p>Three numbers, one confusing report — here's what each one actually means.</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>5 min read</span></span>
+        </div>
+      </a>
+      <a class="editorial-card" data-category="connectivity" href="post-6.html">
+        <img class="editorial-image" src="images/editorial/speed-test-process.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Connectivity</span>
+          <h3>What Happens When You Run a Speed Test (Step by Step)</h3>
+          <p>You click "Go" and wait for three numbers. But what actually happens during those twenty seconds?</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>7 min read</span></span>
+        </div>
+      </a>
+      <a class="editorial-card" data-category="networking" href="post-5.html">
+        <img class="editorial-image" src="images/editorial/wifi-bands.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Networking</span>
+          <h3>Is 5GHz Wi-Fi Always Better Than 2.4GHz?</h3>
+          <p>5GHz is faster, but 2.4GHz goes further. Here is how to choose the right band for your devices.</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>5 min read</span></span>
+        </div>
+      </a>
+      <a class="editorial-card" data-category="networking" href="post-8.html">
+        <img class="editorial-image" src="images/editorial/ethernet-vs-wifi.jpg" width="512" height="320" alt="" loading="lazy" decoding="async">
+        <div class="editorial-card-copy">
+          <span class="editorial-category">Networking</span>
+          <h3>Ethernet vs. Wi-Fi: When the Cable Actually Matters</h3>
+          <p>Wi-Fi is convenient, but sometimes a $5 cable is the answer. Here's when it makes a real difference.</p>
+          <span class="editorial-meta"><span>Jul 2026</span><span>6 min read</span></span>
+        </div>
       </a>
     </div>
-  </div>
-  </div>
-</section>
-
-<section class="section bordered wrap">
-  <div class="section-head">
-    <span class="eyebrow">Latest</span>
-    <a href="articles.html" class="link-accent" style="display:flex;align-items:center;gap:.35rem;">
-      View all
-      <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-  <div class="article-grid">
-<a href="muddi-app-guide.html" class="article-card muddi-card" data-category="apps"><img class="muddi-logo" src="muddi-icon-256.png" width="100" height="100" alt="Muddi cat mascot wearing purple headphones with video and document tools" decoding="async" loading="lazy"><span class="tag">App spotlight</span><h3>Meet Muddi: a fresh perspective on your media</h3><p>A closer look at video compression, photo editing, audio tools and document scanning on Android.</p><div class="article-meta"><span>5 Nov 2026</span><span>6 min read</span></div></a>
-    <a href="post-11.html" class="article-card reveal" style="border: 1px solid var(--accent); background: rgba(37,99,235,0.03);">
-      <div class="card-icon" style="background:var(--accent);color:white">
-        <svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-      </div>
-      <span class="tag">Samsung</span>
-      <h3>Samsung Galaxy S27 Ultra and Galaxy S27 Pro batteries have been pictured in a new certification</h3>
-      <p>Battery details, capacity estimates, and launch timing are all in focus as Samsung's next S27 lineup continues to surface in leaks.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>4 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Oct 2026</span>
-      </div>
-    </a>
-
-    <a href="post-10.html" class="article-card reveal" style="border: 1px solid var(--accent); background: rgba(37,99,235,0.03);">
-      <div class="card-icon" style="background:var(--accent);color:white">
-        <svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-      </div>
-      <span class="tag">Samsung</span>
-      <h3>Samsung One UI 9 Beta Coming to Galaxy S25 Series Sooner Than Expected</h3>
-      <p>Samsung has added new beta program entries for Galaxy S25, S25+, and S25 Ultra indicating One UI 9 will launch sooner than expected.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>3 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Aug 2026</span>
-      </div>
-    </a>
-
-    <a href="post-1.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-      </div>
-      <span class="tag">Networking</span>
-      <h3>Why Your Router Keeps Dropping Signal (And How to Actually Fix It)</h3>
-      <p>Restarting your router only fixes the symptom — here's what's actually happening.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>6 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-2.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-      </div>
-      <span class="tag">Networking</span>
-      <h3>How to Read Your Connected Devices List Like a Network Admin</h3>
-      <p>Every MAC address and hostname tells you something, if you know what to look for.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>5 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-3.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      </div>
-      <span class="tag">Connectivity</span>
-      <h3>Speed Test Results Explained: Upload, Download, and Ping</h3>
-      <p>Three numbers, one confusing report — here's what each one actually means.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>5 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-4.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      </div>
-      <span class="tag">Smart Home</span>
-      <h3>Why Your Smart Home Devices Keep Disconnecting</h3>
-      <p>Smart plugs and bulbs are notorious for dropping off. Here is how to lock them in permanently.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>4 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-5.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-      </div>
-      <span class="tag">Networking</span>
-      <h3>Is 5GHz Wi-Fi Always Better Than 2.4GHz?</h3>
-      <p>5GHz is faster, but 2.4GHz goes further. Here is how to choose the right band for your devices.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>5 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-6.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      </div>
-      <span class="tag">Connectivity</span>
-      <h3>What Happens When You Run a Speed Test (Step by Step)</h3>
-      <p>You click "Go" and wait for three numbers. But what actually happens during those twenty seconds?</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>7 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-7.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-      </div>
-      <span class="tag">Networking</span>
-      <h3>Your Router's Admin Page: What All Those Settings Actually Mean</h3>
-      <p>DHCP, DNS, QoS, UPnP — a plain-English guide to the menus you've never touched.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>8 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-    <a href="post-8.html" class="article-card reveal">
-      <div class="card-icon">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-      </div>
-      <span class="tag">Networking</span>
-      <h3>Ethernet vs. Wi-Fi: When the Cable Actually Matters</h3>
-      <p>Wi-Fi is convenient, but sometimes a $5 cable is the answer. Here's when it makes a real difference.</p>
-      <div class="article-meta">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span>6 min read</span>
-        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <span>Jul 2026</span>
-      </div>
-    </a>
-  </div>
-</section>
+  </section>
+</main>
 
 <hr class="gradient-divider">
 
@@ -339,11 +282,8 @@
   </div>
 </footer>
 
-<script defer src="theme.js?v=fast-1"></script>
-<script defer src="hero-bg.js?v=fast-1"></script>
+<script defer src="theme.js?v=editorial-1"></script>
 
 <script defer src="cookie-consent.js?v=fast-1"></script>
-<script defer src="card-3d.js?v=fast-1"></script>
-<script defer src="visual-effects.js?v=fast-1"></script>
 </body>
 </html>
